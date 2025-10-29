@@ -1,4 +1,5 @@
 import { Code2, Instagram, Linkedin, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -84,9 +85,9 @@ export default function Footer() {
               © {currentYear} InnovaCode Solutions S.A.S. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-500 hover:text-[#00FF7F] transition-colors">
+              <Link to="/politica-privacidad" className="text-gray-500 hover:text-[#00FF7F] transition-colors">
                 Política de Privacidad
-              </a>
+              </Link>
               <a href="#" className="text-gray-500 hover:text-[#00FF7F] transition-colors">
                 Términos y Condiciones
               </a>
