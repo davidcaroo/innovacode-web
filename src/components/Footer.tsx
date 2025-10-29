@@ -88,9 +88,9 @@ export default function Footer() {
               <Link to="/politica-privacidad" className="text-gray-500 hover:text-[#00FF7F] transition-colors">
                 Política de Privacidad
               </Link>
-              <a href="#" className="text-gray-500 hover:text-[#00FF7F] transition-colors">
+              <Link to="/terminos-condiciones" className="text-gray-500 hover:text-[#00FF7F] transition-colors">
                 Términos y Condiciones
-              </a>
+              </Link>
             </div>
           </div>
         </div>

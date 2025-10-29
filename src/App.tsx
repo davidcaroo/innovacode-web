@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import BackToTop from './components/BackToTop';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsConditions from './components/TermsConditions';
 
 // Componente de la página principal
 const HomePage = () => (
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/politica-privacidad" element={<PrivacyPolicy />} />
+          <Route path="/terminos-condiciones" element={<TermsConditions />} />
         </Routes>
         <Footer />
         <WhatsAppButton />
