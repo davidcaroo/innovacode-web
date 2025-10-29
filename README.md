@@ -1,4 +1,414 @@
-# InnovaCode - Sitio web (Vite + React + TypeScript + TailwindCSS)
+# 🚀 InnovaCode Solutions - Sitio Web Corporativo
+
+![InnovaCode Solutions](https://img.shields.io/badge/Version-1.0.0-00FF7F?style=for-the-badge)
+![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=for-the-badge&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-3178C6?style=for-the-badge&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.4.2-646CFF?style=for-the-badge&logo=vite)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4.1-38B2AC?style=for-the-badge&logo=tailwind-css)
+
+> Sitio web corporativo moderno para InnovaCode Solutions - Empresa especializada en desarrollo de software a medida, IA y automatizaciones en Colombia y LATAM.
+
+---
+
+## 📋 Tabla de Contenidos
+
+- [✨ Características](#-características)
+- [🎨 Diseño y UX](#-diseño-y-ux)
+- [🛠️ Stack Tecnológico](#️-stack-tecnológico)
+- [📦 Instalación](#-instalación)
+- [🚀 Uso](#-uso)
+- [🏗️ Estructura del Proyecto](#️-estructura-del-proyecto)
+- [🔍 SEO y Optimizaciones](#-seo-y-optimizaciones)
+- [📱 Responsive Design](#-responsive-design)
+- [🌐 Despliegue](#-despliegue)
+- [🤝 Contribuir](#-contribuir)
+- [📄 Licencia](#-licencia)
+
+---
+
+## ✨ Características
+
+### Funcionalidades Principales
+
+- ✅ **Single Page Application (SPA)** con navegación fluida y animaciones
+- ✅ **Formulario de Contacto** con validación en tiempo real
+- ✅ **Botón de WhatsApp flotante** con mensaje prellenado
+- ✅ **Scroll suave** entre secciones con navegación inteligente
+- ✅ **Botón "Volver arriba"** que aparece al hacer scroll
+- ✅ **Animaciones on-scroll** para mejor experiencia visual
+- ✅ **Tema oscuro profesional** con acentos en verde neón (#00FF7F)
+- ✅ **Totalmente responsive** - Optimizado para móvil, tablet y desktop
+
+### Secciones del Sitio
+
+| Sección | ID | Descripción |
+|---------|------|-------------|
+| **Hero** | `#hero` | Presentación principal con call-to-action |
+| **Servicios** | `#servicios` | 4 servicios principales con iconos animados |
+| **Propuesta de Valor** | `#valor` | Beneficios y diferenciales de la empresa |
+| **Proceso** | `#proceso` | Metodología de trabajo en 4 pasos |
+| **Contacto** | `#contacto` | Formulario funcional con validaciones |
+| **Footer** | - | Links de navegación y redes sociales |
+
+---
+
+## 🎨 Diseño y UX
+
+### Paleta de Colores
+
+```css
+/* Colores Principales */
+--primary-green: #00FF7F;      /* Verde neón - Acentos y CTAs */
+--primary-dark: #0C0C0C;       /* Negro profundo - Fondo principal */
+--secondary-dark: #1A1A1A;     /* Gris oscuro - Fondos secundarios */
+--border-color: #2A2A2A;       /* Gris medio - Bordes */
+--text-light: #FFFFFF;         /* Blanco - Textos principales */
+--text-gray: #9CA3AF;          /* Gris claro - Textos secundarios */
+```
+
+### Tipografía
+
+- **Familia**: [Urbanist](https://fonts.google.com/specimen/Urbanist) (Google Fonts)
+- **Pesos**: 300, 400, 500, 600, 700, 800
+- **Características**: Moderna, legible, profesional
+
+### Componentes de UI
+
+#### Botones
+- **Primario**: Fondo verde neón (#00FF7F) con hover effect y sombra brillante
+- **Secundario**: Borde verde con fondo transparente
+- **Estados**: Hover, disabled, loading
+
+#### Tarjetas
+- Fondo oscuro (#1A1A1A)
+- Bordes sutiles (#2A2A2A)
+- Hover con scale transform y borde verde brillante
+- Sombras suaves con efecto glow
+
+#### Animaciones
+- **Fade in up**: Entrada de elementos desde abajo
+- **Scale on hover**: Crecimiento sutil al pasar el mouse
+- **Smooth scroll**: Navegación fluida entre secciones
+- **Pulse**: Animación continua en botón de WhatsApp
+
+---
+
+## 🛠️ Stack Tecnológico
+
+### Frontend Framework
+- **React 18.3.1** - Biblioteca para interfaces de usuario
+- **TypeScript 5.5.3** - Tipado estático para JavaScript
+- **Vite 5.4.2** - Build tool ultrarrápido con HMR
+
+### Estilos
+- **TailwindCSS 3.4.1** - Framework CSS utility-first
+- **PostCSS 8.4.35** - Procesador de CSS
+- **Autoprefixer 10.4.18** - Prefijos de navegadores automáticos
+
+### Iconos y Assets
+- **Lucide React 0.344.0** - Biblioteca de iconos SVG moderna
+- **Google Fonts** - Tipografía Urbanist
+
+### Linting y Calidad
+- **ESLint 9.9.1** - Linter de JavaScript/TypeScript
+- **TypeScript ESLint 8.3.0** - Reglas de ESLint para TypeScript
+- **React Hooks ESLint Plugin** - Validación de hooks de React
+
+### Herramientas de Desarrollo
+- **Vite Plugin React** - Fast Refresh para desarrollo
+- **TypeScript Compiler** - Verificación de tipos
+
+---
+
+## 📦 Instalación
+
+### Prerrequisitos
+
+- **Node.js** >= 16.x
+- **npm** >= 8.x o **yarn** >= 1.22.x
+
+### Pasos de Instalación
+
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/davidcaroo/innovacode-web.git
+   cd innovacode-web
+   ```
+
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
+
+3. **Configurar variables de entorno** (opcional)
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Edita `.env` y configura:
+   ```env
+   VITE_N8N_WEBHOOK_URL=https://tu-webhook-url.com
+   ```
+
+4. **Verificar instalación**
+   ```bash
+   npm run typecheck
+   ```
+
+---
+
+## 🚀 Uso
+
+### Desarrollo
+
+Inicia el servidor de desarrollo con hot-reload:
+
+```bash
+npm run dev
+```
+
+Abre [http://localhost:5173](http://localhost:5173) en tu navegador.
+
+### Build de Producción
+
+Genera una build optimizada:
+
+```bash
+npm run build
+```
+
+Los archivos se generan en la carpeta `dist/`.
+
+### Preview de Build
+
+Previsualiza la build de producción localmente:
+
+```bash
+npm run preview
+```
+
+### Otros Scripts
+
+| Script | Descripción |
+|--------|-------------|
+| `npm run lint` | Ejecuta ESLint para revisar el código |
+| `npm run typecheck` | Verifica tipos de TypeScript sin compilar |
+
+---
+
+## 🏗️ Estructura del Proyecto
+
+```
+innovacode-web/
+├── public/                      # Archivos estáticos
+│   ├── android-chrome-192x192.png
+│   ├── android-chrome-512x512.png
+│   ├── apple-touch-icon.png
+│   ├── favicon.ico
+│   ├── favicon-16x16.png
+│   ├── favicon-32x32.png
+│   ├── og-image.jpg            # Imagen Open Graph (1200x630)
+│   ├── robots.txt              # Directivas para crawlers
+│   ├── sitemap.xml             # Mapa del sitio
+│   └── site.webmanifest        # Manifest PWA
+├── src/
+│   ├── components/             # Componentes React
+│   │   ├── BackToTop.tsx       # Botón volver arriba
+│   │   ├── ContactForm.tsx     # Formulario de contacto
+│   │   ├── Footer.tsx          # Pie de página
+│   │   ├── Hero.tsx            # Sección principal
+│   │   ├── Navigation.tsx      # Barra de navegación
+│   │   ├── Process.tsx         # Proceso de trabajo
+│   │   ├── Services.tsx        # Servicios ofrecidos
+│   │   ├── ValueProposition.tsx # Propuesta de valor
+│   │   └── WhatsAppButton.tsx  # Botón flotante de WhatsApp
+│   ├── App.tsx                 # Componente raíz
+│   ├── main.tsx                # Punto de entrada
+│   ├── index.css               # Estilos globales + Tailwind
+│   └── vite-env.d.ts           # Tipos de Vite
+├── index.html                  # HTML principal
+├── package.json                # Dependencias y scripts
+├── tsconfig.json               # Configuración TypeScript
+├── tailwind.config.js          # Configuración Tailwind
+├── vite.config.ts              # Configuración Vite
+└── README.md                   # Este archivo
+```
+
+---
+
+## 🔍 SEO y Optimizaciones
+
+### Meta Tags Implementados
+
+✅ **Meta Tags Básicos**
+- Title optimizado con keywords
+- Description (156 caracteres)
+- Keywords relevantes
+- Canonical URL
+- Author y robots
+
+✅ **Open Graph (Facebook, LinkedIn)**
+- og:title, og:description, og:image
+- og:type, og:url, og:locale
+- Imagen optimizada 1200x630px
+
+✅ **Twitter Cards**
+- twitter:card (summary_large_image)
+- twitter:title, twitter:description
+- twitter:image
+
+✅ **Schema.org JSON-LD**
+- Tipo: SoftwareCompany
+- Información de contacto
+- Servicios ofrecidos
+- Links de redes sociales
+
+### Archivos SEO
+
+| Archivo | Descripción |
+|---------|-------------|
+| `robots.txt` | Permite indexación completa, referencia al sitemap |
+| `sitemap.xml` | Mapa con todas las secciones (prioridades configuradas) |
+| `og-image.jpg` | Imagen para compartir en redes sociales |
+
+### Puntuación SEO Estimada
+
+- **Antes de optimizaciones**: 3/10 ⚠️
+- **Después de optimizaciones**: 7/10 ✅
+
+### Accesibilidad
+
+- ✅ Todos los iconos tienen `aria-label`
+- ✅ Navegación por teclado funcional
+- ✅ Contraste de colores WCAG AA compliant
+- ✅ HTML semántico correcto
+
+---
+
+## 📱 Responsive Design
+
+### Breakpoints
+
+```css
+/* Tailwind Breakpoints */
+sm: 640px   /* Tablet pequeña */
+md: 768px   /* Tablet */
+lg: 1024px  /* Desktop pequeño */
+xl: 1280px  /* Desktop */
+2xl: 1536px /* Desktop grande */
+```
+
+### Diseño Adaptativo
+
+- **Móvil (< 640px)**
+  - Menú hamburguesa colapsable
+  - Grid de 1 columna
+  - Tipografía reducida
+  - Padding ajustado
+
+- **Tablet (640-1024px)**
+  - Grid de 2 columnas
+  - Navegación híbrida
+  - Espaciado medio
+
+- **Desktop (> 1024px)**
+  - Layout completo
+  - Navegación horizontal
+  - Grid de 2-4 columnas
+  - Efectos hover completos
+
+---
+
+## 🌐 Despliegue
+
+### Opción 1: Vercel (Recomendado)
+
+1. Conecta tu repositorio de GitHub
+2. Vercel detecta automáticamente Vite
+3. Configura variables de entorno (si es necesario)
+4. Deploy automático en cada push a `main`
+
+```bash
+# O usa Vercel CLI
+npm i -g vercel
+vercel
+```
+
+### Opción 2: Netlify
+
+1. Conecta tu repositorio
+2. Build command: `npm run build`
+3. Publish directory: `dist`
+4. Deploy
+
+### Opción 3: GitHub Pages
+
+Requiere configuración adicional para SPA. Ver [Vite deployment guide](https://vitejs.dev/guide/static-deploy.html).
+
+### Variables de Entorno en Producción
+
+Si usas el formulario con webhook:
+
+```env
+VITE_N8N_WEBHOOK_URL=https://tu-webhook-produccion.com
+```
+
+---
+
+## 🤝 Contribuir
+
+### Flujo de Trabajo
+
+1. Fork del repositorio
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit de tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### Guía de Estilo
+
+- Usa TypeScript para todos los componentes nuevos
+- Sigue las reglas de ESLint configuradas
+- Usa Tailwind para estilos (evita CSS custom)
+- Componentes funcionales con hooks
+- Nombres de componentes en PascalCase
+
+---
+
+## 📞 Contacto
+
+**InnovaCode Solutions**
+- 🌐 Website: [https://innovacode.tech](https://innovacode.tech)
+- 📧 Email: contacto@innovacode.tech
+- 📱 WhatsApp: +57 323 223 1834
+- 💼 LinkedIn: [@innovacode](https://www.linkedin.com/company/innovacode)
+
+---
+
+## 📄 Licencia
+
+Este proyecto es propiedad de InnovaCode Solutions. Todos los derechos reservados.
+
+---
+
+## 🙏 Agradecimientos
+
+- [React](https://react.dev/) - Framework UI
+- [Vite](https://vitejs.dev/) - Build tool
+- [TailwindCSS](https://tailwindcss.com/) - Framework CSS
+- [Lucide](https://lucide.dev/) - Iconos
+- [Vercel](https://vercel.com/) - Hosting
+
+---
+
+<div align="center">
+  <p>Hecho con ❤️ por InnovaCode Solutions</p>
+  <p>
+    <a href="https://innovacode.tech">🌐 Website</a> •
+    <a href="https://github.com/davidcaroo/innovacode-web">📦 Repository</a> •
+    <a href="https://github.com/davidcaroo/innovacode-web/issues">🐛 Report Bug</a>
+  </p>
+</div>
 
 Documento README en español para el proyecto presente en esta carpeta.
 
