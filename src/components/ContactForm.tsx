@@ -50,26 +50,46 @@ export default function ContactForm() {
     setSubmitStatus('idle');
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      console.log('Form submitted:', formData);
-
-      setSubmitStatus('success');
-      setFormData({
-        nombre: '',
-        email: '',
-        empresa: '',
-        telefono: '',
-        mensaje: '',
+      const response = await fetch('https://formspree.io/f/xyzkrlob', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          email: formData.email,
+          empresa: formData.empresa,
+          telefono: formData.telefono,
+          mensaje: formData.mensaje,
+        }),
       });
-      setErrors({});
 
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 5000);
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({
+          nombre: '',
+          email: '',
+          empresa: '',
+          telefono: '',
+          mensaje: '',
+        });
+        setErrors({});
+
+        // Limpiar mensaje de éxito después de 5 segundos
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        throw new Error('Error al enviar el formulario');
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
+
+      // Limpiar mensaje de error después de 5 segundos
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
