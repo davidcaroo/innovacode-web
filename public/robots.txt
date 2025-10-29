@@ -1,0 +1,19 @@
+# robots.txt para InnovaCode Solutions
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://innovacode.tech/sitemap.xml
+
+# Evitar indexar archivos de desarrollo (si existen)
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /api/test/
+
+# Crawl-delay para bots pesados (opcional)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 1
