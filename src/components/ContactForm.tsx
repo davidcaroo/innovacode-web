@@ -50,7 +50,7 @@ export default function ContactForm() {
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://formspree.io/f/xyzkrlob', {
+      const response = await fetch('https://n8nhero-ac01c953fd21.herokuapp.com/webhook/contacto-web-lead', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,17 @@ export default function ContactForm() {
         }),
       });
 
-      if (response.ok) {
+      // Manejar respuestas del servidor
+      if (!response.ok) {
+        // Errores 400 o 500 del servidor
+        const errorData = await response.json().catch(() => ({ message: 'Error al procesar la solicitud' }));
+        throw new Error(errorData.message || `Error ${response.status}: ${response.statusText}`);
+      }
+
+      // Procesar respuesta exitosa de n8n
+      const result = await response.json();
+
+      if (result.status === 'success' || response.ok) {
         setSubmitStatus('success');
         setFormData({
           nombre: '',
@@ -80,7 +90,7 @@ export default function ContactForm() {
           setSubmitStatus('idle');
         }, 5000);
       } else {
-        throw new Error('Error al enviar el formulario');
+        throw new Error(result.message || 'Error al enviar el formulario');
       }
     } catch (error) {
       console.error('Error submitting form:', error);

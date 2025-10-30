@@ -15,6 +15,7 @@
 - [✨ Características](#-características)
 - [🎨 Diseño y UX](#-diseño-y-ux)
 - [🛠️ Stack Tecnológico](#️-stack-tecnológico)
+- [🤖 Integración n8n](#-integración-n8n)
 - [📦 Instalación](#-instalación)
 - [🚀 Uso](#-uso)
 - [🏗️ Estructura del Proyecto](#️-estructura-del-proyecto)
@@ -117,6 +118,65 @@
 ### Herramientas de Desarrollo
 - **Vite Plugin React** - Fast Refresh para desarrollo
 - **TypeScript Compiler** - Verificación de tipos
+
+---
+
+## 🤖 Integración n8n
+
+### **Formulario de Contacto Automatizado**
+
+El formulario de contacto está integrado con **n8n** (plataforma de automatización de flujos de trabajo) para procesar los leads de forma automática.
+
+#### 🔄 **Flujo de Automatización:**
+
+```
+Usuario completa formulario → POST a webhook n8n → Validación de datos 
+→ Guardar en Google Sheets → Respuesta JSON al frontend
+```
+
+#### ⚙️ **Configuración:**
+
+- **Webhook URL**: `https://n8nhero-ac01c953fd21.herokuapp.com/webhook/contacto-web-lead`
+- **Método**: POST
+- **Content-Type**: application/json
+
+#### 📤 **Datos enviados:**
+
+```json
+{
+  "nombre": "Nombre del cliente",
+  "email": "email@ejemplo.com",
+  "empresa": "Nombre de la empresa",
+  "telefono": "+57 300 123 4567",
+  "mensaje": "Descripción del proyecto..."
+}
+```
+
+#### 📥 **Respuesta esperada de n8n:**
+
+**Éxito:**
+```json
+{
+  "status": "success",
+  "message": "Lead guardado correctamente"
+}
+```
+
+**Error:**
+```json
+{
+  "status": "error",
+  "message": "Descripción del error"
+}
+```
+
+#### ✨ **Características del workflow:**
+
+- ✅ **Validación de datos** en servidor
+- ✅ **Almacenamiento en Google Sheets** para seguimiento de leads
+- ✅ **Manejo de errores** robusto (400/500)
+- ✅ **Respuestas estructuradas** en JSON
+- ✅ **Hosted en Heroku** para alta disponibilidad
 
 ---
 
