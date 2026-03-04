@@ -56,13 +56,13 @@ export default function Services() {
   }, []);
 
   return (
-    <section id="servicios" ref={sectionRef} className="py-20 sm:py-32 bg-[#0C0C0C]">
+    <section id="servicios" ref={sectionRef} className="py-20 sm:py-32 bg-bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Nuestros <span className="text-[#00FF7F]">Servicios</span>
+          <h2 className="text-4xl sm:text-5xl font-bold text-text-primary mb-4">
+            Nuestros <span className="text-accent">Servicios</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg max-w-2xl mx-auto">
             Soluciones tecnológicas diseñadas para impulsar tu negocio al siguiente nivel
           </p>
         </div>
@@ -73,21 +73,21 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className={`group bg-[#1A1A1A] p-8 rounded-2xl border border-[#2A2A2A] hover:border-[#00FF7F] transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,255,127,0.2)] hover:scale-105 ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                className={`group bg-bg-card p-8 rounded-2xl border border-border-primary hover:border-accent transition-all duration-500 hover:shadow-accent hover:scale-105 ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                   }`}
                 style={{ transition: 'all 0.6s ease-out' }}
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-[#00FF7F]/10 rounded-xl flex items-center justify-center group-hover:bg-[#00FF7F]/20 transition-colors">
-                      <Icon className="w-8 h-8 text-[#00FF7F]" aria-label={`Icono de ${service.title}`} />
+                    <div className="w-16 h-16 bg-accent/10 rounded-xl flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                      <Icon className="w-8 h-8 text-accent" aria-label={`Icono de ${service.title}`} />
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#00FF7F] transition-colors">
+                    <h3 className="text-xl font-bold text-text-primary mb-3 group-hover:text-accent transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-text-secondary leading-relaxed">
                       {service.description}
                     </p>
                   </div>

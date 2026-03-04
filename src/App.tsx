@@ -10,6 +10,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import BackToTop from './components/BackToTop';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsConditions from './components/TermsConditions';
+import './styles/themes.css';
 
 // Componente de la página principal
 const HomePage = () => (
@@ -25,7 +26,7 @@ const HomePage = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-[#0C0C0C]">
+      <div className="min-h-screen bg-bg-primary">
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
