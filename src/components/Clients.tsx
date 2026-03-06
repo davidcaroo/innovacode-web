@@ -4,6 +4,7 @@ import bahariImg from '/bahari-web.webp';
 import alianzasImg from '/alianzas-bahari.webp';
 import saresImg from '/commercial-sares.webp';
 import havaianasImg from '/havaianas-web.webp';
+import davidcaroImg from '/davidcaro-web.webp';
 
 interface Client {
   id: number;
@@ -56,6 +57,16 @@ const clients: Client[] = [
     badge: "Marca Oficial",
     description: "Optimización, corrección de errores, formularios e integración de pasarela de pago Wompi.",
     tags: ["Optimización", "Wompi", "E-commerce"],
+  },
+  {
+    id: 5,
+    name: "David Caro",
+    url: "https://davidcaro.vercel.app",
+    image: davidcaroImg,
+    category: "Portfolio Personal",
+    badge: "Fullstack Developer",
+    description: "Portfolio profesional de desarrollador fullstack, especializado en React, Vue.js y PHP.",
+    tags: ["Portfolio", "React", "Fullstack"],
   },
 ];
 
@@ -151,7 +162,7 @@ export default function Clients() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto [&>*:last-child:nth-child(odd)]:sm:col-span-2 [&>*:last-child:nth-child(odd)]:sm:max-w-[calc(50%-12px)] [&>*:last-child:nth-child(odd)]:sm:mx-auto">
           {clients.map((client, index) => (
             <div
               key={client.id}
