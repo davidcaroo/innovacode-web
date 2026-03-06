@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Services from './components/Services';
 import ValueProposition from './components/ValueProposition';
+import Clients from './components/Clients';
 import Process from './components/Process';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
@@ -18,6 +19,7 @@ const HomePage = () => (
     <Hero />
     <Services />
     <ValueProposition />
+    <Clients />
     <Process />
     <ContactForm />
   </>

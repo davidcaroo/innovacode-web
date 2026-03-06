@@ -58,6 +58,9 @@ export default function Navigation() {
             <button onClick={() => scrollToSection('servicios')} className="text-text-secondary hover:text-accent transition-colors">
               Servicios
             </button>
+            <button onClick={() => scrollToSection('clientes')} className="text-text-secondary hover:text-accent transition-colors">
+              Clientes
+            </button>
             <button onClick={() => scrollToSection('proceso')} className="text-text-secondary hover:text-accent transition-colors">
               Proceso
             </button>
@@ -94,6 +97,9 @@ export default function Navigation() {
             </button>
             <button onClick={() => scrollToSection('servicios')} className="block w-full text-left text-text-secondary hover:text-accent transition-colors py-2">
               Servicios
+            </button>
+            <button onClick={() => scrollToSection('clientes')} className="block w-full text-left text-text-secondary hover:text-accent transition-colors py-2">
+              Clientes
             </button>
             <button onClick={() => scrollToSection('proceso')} className="block w-full text-left text-text-secondary hover:text-accent transition-colors py-2">
               Proceso
