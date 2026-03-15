@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-  <!-- Página principal -->
+  <!-- PÃ¡gina principal -->
   <url>
-    <loc>https://innovacode.tech/</loc>
+    <loc>https://innovacode.click/</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
-  <!-- Sección Hero -->
+  <!-- SecciÃ³n Hero -->
   <url>
-    <loc>https://innovacode.tech/#hero</loc>
+    <loc>https://innovacode.click/#hero</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Sección Servicios -->
+  <!-- SecciÃ³n Servicios -->
   <url>
-    <loc>https://innovacode.tech/#servicios</loc>
+    <loc>https://innovacode.click/#servicios</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
-  <!-- Sección Propuesta de Valor -->
+  <!-- SecciÃ³n Propuesta de Valor -->
   <url>
-    <loc>https://innovacode.tech/#valor</loc>
+    <loc>https://innovacode.click/#valor</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- Sección Proceso -->
+  <!-- SecciÃ³n Proceso -->
   <url>
-    <loc>https://innovacode.tech/#proceso</loc>
+    <loc>https://innovacode.click/#proceso</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
-  <!-- Sección Cotizador -->
+  <!-- SecciÃ³n Cotizador -->
   <url>
-    <loc>https://innovacode.tech/#cotizador</loc>
+    <loc>https://innovacode.click/#cotizador</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
-  <!-- Sección Contacto -->
+  <!-- SecciÃ³n Contacto -->
   <url>
-    <loc>https://innovacode.tech/#contacto</loc>
+    <loc>https://innovacode.click/#contacto</loc>
     <lastmod>2025-10-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

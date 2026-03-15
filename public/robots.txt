@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://innovacode.tech/sitemap.xml
+Sitemap: https://innovacode.click/sitemap.xml
 
 # Evitar indexar archivos de desarrollo (si existen)
 Disallow: /admin/

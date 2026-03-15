@@ -10,18 +10,18 @@ const TermsConditions = () => {
                         <Scale className="w-10 h-10 text-accent" aria-label="Icono de balanza de justicia" />
                     </div>
                     <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                        Términos y <span className="text-accent">Condiciones</span>
+                        TÃ©rminos y <span className="text-accent">Condiciones</span>
                     </h1>
                     <p className="text-xl text-text-secondary mb-4">
                         Acuerdo legal para el uso de nuestros servicios
                     </p>
                     <p className="text-sm text-text-muted">
-                        Última actualización: 29 de octubre de 2025
+                        Ãšltima actualizaciÃ³n: 29 de octubre de 2025
                     </p>
                 </div>
             </section>
 
-            {/* Introducción */}
+            {/* IntroducciÃ³n */}
             <section className="py-8 px-4 border-t border-border-primary">
                 <div className="max-w-4xl mx-auto">
                     <div className="bg-bg-card border border-border-primary rounded-2xl p-8 mb-8">
@@ -34,10 +34,10 @@ const TermsConditions = () => {
                             <div>
                                 <h2 className="text-2xl font-bold mb-3 text-accent">Bienvenido</h2>
                                 <p className="text-text-secondary leading-relaxed mb-3">
-                                    Al acceder y utilizar el sitio web <a href="https://innovacode.tech" className="text-accent hover:underline">innovacode.tech</a> y los servicios de <strong>InnovaCode Solutions</strong>, aceptas cumplir y estar sujeto a los siguientes Términos y Condiciones de uso.
+                                    Al acceder y utilizar el sitio web <a href="https://innovacode.click" className="text-accent hover:underline">innovacode.click</a> y los servicios de <strong>InnovaCode Solutions</strong>, aceptas cumplir y estar sujeto a los siguientes TÃ©rminos y Condiciones de uso.
                                 </p>
                                 <p className="text-text-secondary leading-relaxed">
-                                    Si no estás de acuerdo con estos términos, por favor no utilices nuestros servicios. Te recomendamos leer detenidamente este documento antes de continuar.
+                                    Si no estÃ¡s de acuerdo con estos tÃ©rminos, por favor no utilices nuestros servicios. Te recomendamos leer detenidamente este documento antes de continuar.
                                 </p>
                             </div>
                         </div>
@@ -59,40 +59,40 @@ const TermsConditions = () => {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-2xl font-bold mb-2">1. Definiciones</h2>
-                                <p className="text-text-secondary text-sm">Términos clave utilizados en este documento</p>
+                                <p className="text-text-secondary text-sm">TÃ©rminos clave utilizados en este documento</p>
                             </div>
                         </div>
 
                         <div className="space-y-4 ml-16 text-text-secondary">
                             <p className="leading-relaxed mb-4">
-                                Para efectos de estos Términos y Condiciones, se entenderá por:
+                                Para efectos de estos TÃ©rminos y Condiciones, se entenderÃ¡ por:
                             </p>
                             <ul className="space-y-3">
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
+                                    <span className="text-accent mt-1">â€¢</span>
                                     <span><strong>"Nosotros", "Nuestro/a":</strong> InnovaCode Solutions S.A.S., empresa prestadora de servicios de desarrollo de software</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
-                                    <span><strong>"Usuario", "Tú", "Cliente":</strong> Persona física o jurídica que accede a nuestro sitio web o contrata nuestros servicios</span>
+                                    <span className="text-accent mt-1">â€¢</span>
+                                    <span><strong>"Usuario", "TÃº", "Cliente":</strong> Persona fÃ­sica o jurÃ­dica que accede a nuestro sitio web o contrata nuestros servicios</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
-                                    <span><strong>"Sitio Web":</strong> El dominio innovacode.tech y todas sus páginas relacionadas</span>
+                                    <span className="text-accent mt-1">â€¢</span>
+                                    <span><strong>"Sitio Web":</strong> El dominio innovacode.click y todas sus pÃ¡ginas relacionadas</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
+                                    <span className="text-accent mt-1">â€¢</span>
                                     <span><strong>"Servicios":</strong> Desarrollo de software, IA, automatizaciones y cualquier otro servicio ofrecido por InnovaCode Solutions</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
-                                    <span><strong>"Contenido":</strong> Textos, imágenes, videos, código fuente, logos y cualquier material disponible en el sitio</span>
+                                    <span className="text-accent mt-1">â€¢</span>
+                                    <span><strong>"Contenido":</strong> Textos, imÃ¡genes, videos, cÃ³digo fuente, logos y cualquier material disponible en el sitio</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
 
-                    {/* 2. Aceptación de Términos */}
+                    {/* 2. AceptaciÃ³n de TÃ©rminos */}
                     <div className="bg-bg-card border border-border-primary rounded-2xl p-8 hover:border-accent/30 transition-all duration-300">
                         <div className="flex items-start gap-4 mb-6">
                             <div className="flex-shrink-0">
@@ -101,7 +101,7 @@ const TermsConditions = () => {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                <h2 className="text-2xl font-bold mb-2">2. Aceptación de Términos</h2>
+                                <h2 className="text-2xl font-bold mb-2">2. AceptaciÃ³n de TÃ©rminos</h2>
                                 <p className="text-text-secondary text-sm">Condiciones para usar nuestros servicios</p>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ const TermsConditions = () => {
                             <div className="space-y-3">
                                 <div className="flex items-start gap-2">
                                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-label="Check verde" />
-                                    <span>Tienes al menos 18 años de edad o cuentas con autorización de un tutor legal</span>
+                                    <span>Tienes al menos 18 aÃ±os de edad o cuentas con autorizaciÃ³n de un tutor legal</span>
                                 </div>
                                 <div className="flex items-start gap-2">
                                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-label="Check verde" />
@@ -121,11 +121,11 @@ const TermsConditions = () => {
                                 </div>
                                 <div className="flex items-start gap-2">
                                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-label="Check verde" />
-                                    <span>Has leído, entendido y aceptado estos Términos y Condiciones</span>
+                                    <span>Has leÃ­do, entendido y aceptado estos TÃ©rminos y Condiciones</span>
                                 </div>
                                 <div className="flex items-start gap-2">
                                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" aria-label="Check verde" />
-                                    <span>Toda la información que proporciones será verdadera, precisa y actualizada</span>
+                                    <span>Toda la informaciÃ³n que proporciones serÃ¡ verdadera, precisa y actualizada</span>
                                 </div>
                             </div>
                         </div>
@@ -151,27 +151,27 @@ const TermsConditions = () => {
                                 <p className="mb-3">Puedes utilizar nuestro sitio web para:</p>
                                 <ul className="space-y-2">
                                     <li className="flex items-start gap-2">
-                                        <span className="text-accent font-bold mt-1">✓</span>
+                                        <span className="text-accent font-bold mt-1">âœ“</span>
                                         <span>Informarte sobre nuestros servicios de desarrollo de software</span>
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-accent font-bold mt-1">✓</span>
-                                        <span>Contactarnos para solicitar cotizaciones o información</span>
+                                        <span className="text-accent font-bold mt-1">âœ“</span>
+                                        <span>Contactarnos para solicitar cotizaciones o informaciÃ³n</span>
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-accent font-bold mt-1">✓</span>
+                                        <span className="text-accent font-bold mt-1">âœ“</span>
                                         <span>Leer nuestros contenidos y recursos informativos</span>
                                     </li>
                                     <li className="flex items-start gap-2">
-                                        <span className="text-accent font-bold mt-1">✓</span>
-                                        <span>Compartir nuestro contenido en redes sociales (con atribución)</span>
+                                        <span className="text-accent font-bold mt-1">âœ“</span>
+                                        <span>Compartir nuestro contenido en redes sociales (con atribuciÃ³n)</span>
                                     </li>
                                 </ul>
                             </div>
 
                             <div>
                                 <h3 className="text-lg font-semibold text-accent mb-3">3.2 Usos Prohibidos</h3>
-                                <p className="mb-3">Está estrictamente prohibido:</p>
+                                <p className="mb-3">EstÃ¡ estrictamente prohibido:</p>
                                 <ul className="space-y-2">
                                     <li className="flex items-start gap-2">
                                         <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" aria-label="X rojo" />
@@ -179,7 +179,7 @@ const TermsConditions = () => {
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" aria-label="X rojo" />
-                                        <span>Intentar acceder sin autorización a sistemas, servidores o redes</span>
+                                        <span>Intentar acceder sin autorizaciÃ³n a sistemas, servidores o redes</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" aria-label="X rojo" />
@@ -187,15 +187,15 @@ const TermsConditions = () => {
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" aria-label="X rojo" />
-                                        <span>Realizar ingeniería inversa, descompilar o modificar el sitio</span>
+                                        <span>Realizar ingenierÃ­a inversa, descompilar o modificar el sitio</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" aria-label="X rojo" />
-                                        <span>Transmitir virus, malware o cualquier código malicioso</span>
+                                        <span>Transmitir virus, malware o cualquier cÃ³digo malicioso</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" aria-label="X rojo" />
-                                        <span>Usar bots, scrapers o herramientas automatizadas sin autorización</span>
+                                        <span>Usar bots, scrapers o herramientas automatizadas sin autorizaciÃ³n</span>
                                     </li>
                                 </ul>
                             </div>
@@ -219,16 +219,16 @@ const TermsConditions = () => {
                         <div className="space-y-4 ml-16 text-text-secondary">
                             <div className="space-y-3">
                                 <p className="leading-relaxed">
-                                    <strong className="text-accent">Contratación:</strong> Los servicios de desarrollo de software, IA y automatizaciones se formalizan mediante contratos específicos que detallan alcance, plazos, costos y entregables.
+                                    <strong className="text-accent">ContrataciÃ³n:</strong> Los servicios de desarrollo de software, IA y automatizaciones se formalizan mediante contratos especÃ­ficos que detallan alcance, plazos, costos y entregables.
                                 </p>
                                 <p className="leading-relaxed">
-                                    <strong className="text-accent">Cotizaciones:</strong> Las cotizaciones tienen validez de 30 días calendario desde su emisión. Los precios pueden variar según las condiciones del mercado.
+                                    <strong className="text-accent">Cotizaciones:</strong> Las cotizaciones tienen validez de 30 dÃ­as calendario desde su emisiÃ³n. Los precios pueden variar segÃºn las condiciones del mercado.
                                 </p>
                                 <p className="leading-relaxed">
-                                    <strong className="text-accent">Pagos:</strong> Los términos de pago se establecen en cada contrato individual. Generalmente incluyen un anticipo inicial y pagos por hitos cumplidos.
+                                    <strong className="text-accent">Pagos:</strong> Los tÃ©rminos de pago se establecen en cada contrato individual. Generalmente incluyen un anticipo inicial y pagos por hitos cumplidos.
                                 </p>
                                 <p className="leading-relaxed">
-                                    <strong className="text-accent">Garantías:</strong> Ofrecemos garantías sobre nuestro trabajo según lo especificado en cada contrato. Esto incluye corrección de errores y soporte post-entrega.
+                                    <strong className="text-accent">GarantÃ­as:</strong> Ofrecemos garantÃ­as sobre nuestro trabajo segÃºn lo especificado en cada contrato. Esto incluye correcciÃ³n de errores y soporte post-entrega.
                                 </p>
                             </div>
                         </div>
@@ -252,12 +252,12 @@ const TermsConditions = () => {
                             <div>
                                 <h3 className="text-lg font-semibold text-accent mb-3">5.1 Nuestros Derechos</h3>
                                 <p className="leading-relaxed mb-3">
-                                    Todo el contenido del sitio web, incluyendo diseño, código fuente, textos, gráficos, logos, iconos, imágenes y software,
-                                    es propiedad de InnovaCode Solutions o sus licenciantes y está protegido por leyes de propiedad intelectual colombianas e internacionales.
+                                    Todo el contenido del sitio web, incluyendo diseÃ±o, cÃ³digo fuente, textos, grÃ¡ficos, logos, iconos, imÃ¡genes y software,
+                                    es propiedad de InnovaCode Solutions o sus licenciantes y estÃ¡ protegido por leyes de propiedad intelectual colombianas e internacionales.
                                 </p>
                                 <div className="bg-bg-primary border border-border-primary rounded-lg p-4">
                                     <p className="text-sm">
-                                        <strong className="text-accent">© 2025 InnovaCode Solutions S.A.S.</strong> Todos los derechos reservados.
+                                        <strong className="text-accent">Â© 2025 InnovaCode Solutions S.A.S.</strong> Todos los derechos reservados.
                                     </p>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@ const TermsConditions = () => {
                             <div>
                                 <h3 className="text-lg font-semibold text-accent mb-3">5.2 Derechos del Cliente</h3>
                                 <p className="leading-relaxed">
-                                    Para proyectos de desarrollo de software, la propiedad intelectual del código desarrollado se transfiere al cliente
+                                    Para proyectos de desarrollo de software, la propiedad intelectual del cÃ³digo desarrollado se transfiere al cliente
                                     una vez completado el pago total, salvo que se especifique lo contrario en el contrato. Los componentes reutilizables
                                     y frameworks propios de InnovaCode permanecen como nuestra propiedad.
                                 </p>
@@ -273,7 +273,7 @@ const TermsConditions = () => {
                         </div>
                     </div>
 
-                    {/* 6. Limitación de Responsabilidad */}
+                    {/* 6. LimitaciÃ³n de Responsabilidad */}
                     <div className="bg-bg-card border border-border-primary rounded-2xl p-8 hover:border-accent/30 transition-all duration-300">
                         <div className="flex items-start gap-4 mb-6">
                             <div className="flex-shrink-0">
@@ -282,31 +282,31 @@ const TermsConditions = () => {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                <h2 className="text-2xl font-bold mb-2">6. Limitación de Responsabilidad</h2>
-                                <p className="text-text-secondary text-sm">Límites de nuestra responsabilidad legal</p>
+                                <h2 className="text-2xl font-bold mb-2">6. LimitaciÃ³n de Responsabilidad</h2>
+                                <p className="text-text-secondary text-sm">LÃ­mites de nuestra responsabilidad legal</p>
                             </div>
                         </div>
 
                         <div className="space-y-4 ml-16 text-text-secondary">
                             <p className="leading-relaxed">
-                                En la medida máxima permitida por la ley aplicable:
+                                En la medida mÃ¡xima permitida por la ley aplicable:
                             </p>
                             <ul className="space-y-3">
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">→</span>
-                                    <span>El sitio web se proporciona "tal cual" y "según disponibilidad" sin garantías de ningún tipo</span>
+                                    <span className="text-accent mt-1">â†’</span>
+                                    <span>El sitio web se proporciona "tal cual" y "segÃºn disponibilidad" sin garantÃ­as de ningÃºn tipo</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">→</span>
-                                    <span>No garantizamos que el sitio esté libre de errores, virus o interrupciones</span>
+                                    <span className="text-accent mt-1">â†’</span>
+                                    <span>No garantizamos que el sitio estÃ© libre de errores, virus o interrupciones</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">→</span>
-                                    <span>No seremos responsables de daños indirectos, incidentales, especiales o consecuentes</span>
+                                    <span className="text-accent mt-1">â†’</span>
+                                    <span>No seremos responsables de daÃ±os indirectos, incidentales, especiales o consecuentes</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">→</span>
-                                    <span>Nuestra responsabilidad total no excederá el monto pagado por el cliente en los últimos 12 meses</span>
+                                    <span className="text-accent mt-1">â†’</span>
+                                    <span>Nuestra responsabilidad total no excederÃ¡ el monto pagado por el cliente en los Ãºltimos 12 meses</span>
                                 </li>
                             </ul>
                             <div className="bg-bg-primary border border-accent/20 rounded-lg p-4 mt-4">
@@ -317,7 +317,7 @@ const TermsConditions = () => {
                         </div>
                     </div>
 
-                    {/* 7. Indemnización */}
+                    {/* 7. IndemnizaciÃ³n */}
                     <div className="bg-bg-card border border-border-primary rounded-2xl p-8 hover:border-accent/30 transition-all duration-300">
                         <div className="flex items-start gap-4 mb-6">
                             <div className="flex-shrink-0">
@@ -326,7 +326,7 @@ const TermsConditions = () => {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                <h2 className="text-2xl font-bold mb-2">7. Indemnización</h2>
+                                <h2 className="text-2xl font-bold mb-2">7. IndemnizaciÃ³n</h2>
                                 <p className="text-text-secondary text-sm">Tu compromiso de protegernos legalmente</p>
                             </div>
                         </div>
@@ -334,20 +334,20 @@ const TermsConditions = () => {
                         <div className="space-y-4 ml-16 text-text-secondary">
                             <p className="leading-relaxed">
                                 Aceptas indemnizar, defender y mantener indemne a InnovaCode Solutions, sus directores, empleados y socios de cualquier reclamo,
-                                pérdida, responsabilidad, daño o gasto (incluyendo honorarios legales) que surja de:
+                                pÃ©rdida, responsabilidad, daÃ±o o gasto (incluyendo honorarios legales) que surja de:
                             </p>
                             <ul className="space-y-2 mt-4">
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
+                                    <span className="text-accent mt-1">â€¢</span>
                                     <span>Tu uso del sitio web o servicios</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
-                                    <span>Tu violación de estos Términos y Condiciones</span>
+                                    <span className="text-accent mt-1">â€¢</span>
+                                    <span>Tu violaciÃ³n de estos TÃ©rminos y Condiciones</span>
                                 </li>
                                 <li className="flex items-start gap-2">
-                                    <span className="text-accent mt-1">•</span>
-                                    <span>Tu violación de derechos de terceros, incluidos derechos de propiedad intelectual</span>
+                                    <span className="text-accent mt-1">â€¢</span>
+                                    <span>Tu violaciÃ³n de derechos de terceros, incluidos derechos de propiedad intelectual</span>
                                 </li>
                             </ul>
                         </div>
@@ -362,25 +362,25 @@ const TermsConditions = () => {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                <h2 className="text-2xl font-bold mb-2">8. Modificaciones y Terminación</h2>
-                                <p className="text-text-secondary text-sm">Cambios a estos términos</p>
+                                <h2 className="text-2xl font-bold mb-2">8. Modificaciones y TerminaciÃ³n</h2>
+                                <p className="text-text-secondary text-sm">Cambios a estos tÃ©rminos</p>
                             </div>
                         </div>
 
                         <div className="space-y-4 ml-16 text-text-secondary">
                             <p className="leading-relaxed">
-                                <strong className="text-accent">Modificaciones:</strong> Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento.
-                                Los cambios entrarán en vigor inmediatamente después de su publicación en el sitio web. Tu uso continuado del sitio constituye
-                                la aceptación de los términos modificados.
+                                <strong className="text-accent">Modificaciones:</strong> Nos reservamos el derecho de modificar estos TÃ©rminos y Condiciones en cualquier momento.
+                                Los cambios entrarÃ¡n en vigor inmediatamente despuÃ©s de su publicaciÃ³n en el sitio web. Tu uso continuado del sitio constituye
+                                la aceptaciÃ³n de los tÃ©rminos modificados.
                             </p>
                             <p className="leading-relaxed">
-                                <strong className="text-accent">Terminación:</strong> Podemos suspender o terminar tu acceso al sitio web en cualquier momento, sin previo aviso,
-                                si consideramos que has violado estos términos o por cualquier otra razón a nuestra discreción.
+                                <strong className="text-accent">TerminaciÃ³n:</strong> Podemos suspender o terminar tu acceso al sitio web en cualquier momento, sin previo aviso,
+                                si consideramos que has violado estos tÃ©rminos o por cualquier otra razÃ³n a nuestra discreciÃ³n.
                             </p>
                         </div>
                     </div>
 
-                    {/* 9. Ley Aplicable y Jurisdicción */}
+                    {/* 9. Ley Aplicable y JurisdicciÃ³n */}
                     <div className="bg-bg-card border border-border-primary rounded-2xl p-8 hover:border-accent/30 transition-all duration-300">
                         <div className="flex items-start gap-4 mb-6">
                             <div className="flex-shrink-0">
@@ -389,24 +389,24 @@ const TermsConditions = () => {
                                 </div>
                             </div>
                             <div className="flex-1">
-                                <h2 className="text-2xl font-bold mb-2">9. Ley Aplicable y Jurisdicción</h2>
-                                <p className="text-text-secondary text-sm">Marco legal de estos términos</p>
+                                <h2 className="text-2xl font-bold mb-2">9. Ley Aplicable y JurisdicciÃ³n</h2>
+                                <p className="text-text-secondary text-sm">Marco legal de estos tÃ©rminos</p>
                             </div>
                         </div>
 
                         <div className="space-y-4 ml-16 text-text-secondary">
                             <p className="leading-relaxed">
-                                Estos Términos y Condiciones se regirán e interpretarán de acuerdo con las leyes de la República de Colombia,
-                                sin dar efecto a ningún principio de conflictos de ley.
+                                Estos TÃ©rminos y Condiciones se regirÃ¡n e interpretarÃ¡n de acuerdo con las leyes de la RepÃºblica de Colombia,
+                                sin dar efecto a ningÃºn principio de conflictos de ley.
                             </p>
                             <p className="leading-relaxed">
-                                Cualquier disputa que surja en relación con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales
+                                Cualquier disputa que surja en relaciÃ³n con estos tÃ©rminos estarÃ¡ sujeta a la jurisdicciÃ³n exclusiva de los tribunales
                                 de Cartagena de Indias, Colombia, renunciando expresamente a cualquier otro fuero que pudiera corresponder.
                             </p>
                             <div className="bg-bg-primary border border-border-primary rounded-lg p-4">
                                 <p className="text-sm">
-                                    <strong className="text-accent">Idioma:</strong> Estos términos se redactan originalmente en español.
-                                    Cualquier traducción es solo para conveniencia. En caso de conflicto, prevalecerá la versión en español.
+                                    <strong className="text-accent">Idioma:</strong> Estos tÃ©rminos se redactan originalmente en espaÃ±ol.
+                                    Cualquier traducciÃ³n es solo para conveniencia. En caso de conflicto, prevalecerÃ¡ la versiÃ³n en espaÃ±ol.
                                 </p>
                             </div>
                         </div>
@@ -422,26 +422,26 @@ const TermsConditions = () => {
                             </div>
                             <div className="flex-1">
                                 <h2 className="text-2xl font-bold mb-2">10. Disposiciones Generales</h2>
-                                <p className="text-text-secondary text-sm">Cláusulas adicionales importantes</p>
+                                <p className="text-text-secondary text-sm">ClÃ¡usulas adicionales importantes</p>
                             </div>
                         </div>
 
                         <div className="space-y-4 ml-16 text-text-secondary">
                             <p className="leading-relaxed">
-                                <strong className="text-accent">Acuerdo Completo:</strong> Estos Términos y Condiciones constituyen el acuerdo completo entre tú e InnovaCode Solutions
+                                <strong className="text-accent">Acuerdo Completo:</strong> Estos TÃ©rminos y Condiciones constituyen el acuerdo completo entre tÃº e InnovaCode Solutions
                                 con respecto al uso del sitio web.
                             </p>
                             <p className="leading-relaxed">
-                                <strong className="text-accent">Separabilidad:</strong> Si alguna disposición de estos términos se considera inválida o inaplicable,
-                                las disposiciones restantes continuarán en pleno vigor y efecto.
+                                <strong className="text-accent">Separabilidad:</strong> Si alguna disposiciÃ³n de estos tÃ©rminos se considera invÃ¡lida o inaplicable,
+                                las disposiciones restantes continuarÃ¡n en pleno vigor y efecto.
                             </p>
                             <p className="leading-relaxed">
-                                <strong className="text-accent">Renuncia:</strong> Ninguna renuncia a cualquier término será considerada como una renuncia adicional o continua
-                                de dicho término o de cualquier otro término.
+                                <strong className="text-accent">Renuncia:</strong> Ninguna renuncia a cualquier tÃ©rmino serÃ¡ considerada como una renuncia adicional o continua
+                                de dicho tÃ©rmino o de cualquier otro tÃ©rmino.
                             </p>
                             <p className="leading-relaxed">
-                                <strong className="text-accent">Cesión:</strong> No puedes ceder o transferir estos términos sin nuestro consentimiento previo por escrito.
-                                Podemos ceder estos términos sin restricciones.
+                                <strong className="text-accent">CesiÃ³n:</strong> No puedes ceder o transferir estos tÃ©rminos sin nuestro consentimiento previo por escrito.
+                                Podemos ceder estos tÃ©rminos sin restricciones.
                             </p>
                         </div>
                     </div>
@@ -449,21 +449,21 @@ const TermsConditions = () => {
                 </div>
             </section>
 
-            {/* Sección de Contacto */}
+            {/* SecciÃ³n de Contacto */}
             <section className="py-16 px-4 border-t border-border-primary bg-bg-secondary">
                 <div className="max-w-4xl mx-auto text-center">
                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-accent/10 border border-accent/20 mb-6">
                         <FileText className="w-8 h-8 text-accent" aria-label="Icono de documento" />
                     </div>
-                    <h2 className="text-3xl font-bold mb-4">¿Preguntas sobre estos Términos?</h2>
+                    <h2 className="text-3xl font-bold mb-4">Â¿Preguntas sobre estos TÃ©rminos?</h2>
                     <p className="text-text-secondary mb-8 max-w-2xl mx-auto">
-                        Si tienes alguna pregunta sobre estos Términos y Condiciones, no dudes en contactarnos:
+                        Si tienes alguna pregunta sobre estos TÃ©rminos y Condiciones, no dudes en contactarnos:
                     </p>
                     <div className="space-y-3 text-text-secondary">
                         <p>
                             <strong className="text-accent">Email:</strong>{' '}
-                            <a href="mailto:legal@innovacode.tech" className="hover:text-accent transition-colors">
-                                legal@innovacode.tech
+                            <a href="mailto:legal@innovacode.click" className="hover:text-accent transition-colors">
+                                legal@innovacode.click
                             </a>
                         </p>
                         <p>
@@ -473,7 +473,7 @@ const TermsConditions = () => {
                             </a>
                         </p>
                         <p>
-                            <strong className="text-accent">Razón Social:</strong> InnovaCode Solutions S.A.S.
+                            <strong className="text-accent">RazÃ³n Social:</strong> InnovaCode Solutions S.A.S.
                         </p>
                     </div>
 
@@ -488,7 +488,7 @@ const TermsConditions = () => {
                             to="/politica-privacidad"
                             className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-[#00FF7F] text-[#00FF7F] font-semibold rounded-full hover:bg-[#00FF7F]/10 transition-all"
                         >
-                            Ver Política de Privacidad
+                            Ver PolÃ­tica de Privacidad
                         </Link>
                     </div> */}
                 </div>
