@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaCode Cotizador</title>
+    <!-- Placeholder font just for local testing, the site will inherit its own font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; background-color: #0a0a0a; font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body>
+
+<!-- INICIO SECCIÓN COTIZADOR -->
+<section id="cotizador" class="iq-cotizador">
+  <style scoped>
+    .iq-cotizador {
+      --iq-bg-main: #0a0a0a;
+      --iq-bg-card: #111111;
+      --iq-bg-card-hover: #141414;
+      --iq-bg-summary: #141414;
+      --iq-accent: #00e676;
+      --iq-accent-hover: #00c853;
+      --iq-text-main: #ffffff;
+      --iq-text-sec: #aaaaaa;
+      --iq-border: #1e1e1e;
+      --iq-border-active: #00e676;
+      --iq-radius: 12px;
+      --iq-radius-sm: 8px;
+      --iq-transition: 0.3s ease;
+      
+      background-color: var(--iq-bg-main);
+      color: var(--iq-text-main);
+      font-family: inherit; /* Hereda fuente del sitio */
+      padding: 60px 20px;
+      box-sizing: border-box;
+      line-height: 1.5;
+    }
+    
+    .iq-cotizador * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .iq-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .iq-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .iq-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--iq-text-main);
+    }
+    
+    .iq-accent-text {
+      color: var(--iq-accent);
+    }
+
+    .iq-subtitle {
+      font-size: 1.1rem;
+      color: var(--iq-text-sec);
+    }
+
+    .iq-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (min-width: 992px) {
+      .iq-layout {
+        grid-template-columns: 1.5fr 1fr;
+        gap: 60px;
+      }
+    }
+
+    .iq-step {
+      margin-bottom: 40px;
+    }
+
+    .iq-step-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--iq-text-main);
+    }
+
+    .iq-step-desc {
+      font-size: 0.95rem;
+      color: var(--iq-text-sec);
+      margin-bottom: 15px;
+    }
+
+    /* Cards */
+    .iq-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 600px) {
+      .iq-cards {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
+    .iq-card {
+      background-color: var(--iq-bg-card);
+      border: 2px solid var(--iq-border);
+      border-radius: var(--iq-radius);
+      padding: 24px 20px;
+      cursor: pointer;
+      transition: all var(--iq-transition);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .iq-card:hover {
+      background-color: var(--iq-bg-card-hover);
+      transform: translateY(-2px);
+      border-color: #2a2a2a;
+    }
+
+    .iq-card.iq-active {
+      border-color: var(--iq-border-active);
+      background-color: rgba(0, 230, 118, 0.03);
+    }
+    
+    .iq-card.iq-active::after {
+      content: "✓";
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: var(--iq-accent);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .iq-card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .iq-card-price {
+      font-size: 1rem;
+      color: var(--iq-accent);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .iq-card-features {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--iq-text-sec);
+      margin-top: 10px;
+    }
+
+    .iq-card-features li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .iq-card-features li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--iq-accent);
+    }
+
+    /* Range input */
+    .iq-range-container {
+      background-color: var(--iq-bg-card);
+      border: 1px solid var(--iq-border);
+      border-radius: var(--iq-radius);
+      padding: 25px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .iq-range {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: var(--iq-border);
+      border-radius: 5px;
+      outline: none;
+      transition: var(--iq-transition);
+    }
+    
+    .iq-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--iq-accent);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .iq-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .iq-range::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--iq-accent);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 10px rgba(0, 230, 118, 0.3);
+      transition: transform 0.2s ease;
+    }
+    
+    .iq-range::-moz-range-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    .iq-range-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+    
+    .iq-range-val-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--iq-accent);
+    }
+
+    /* Toggle Switch */
+    .iq-toggle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--iq-bg-card);
+      border: 1px solid var(--iq-border);
+      border-radius: var(--iq-radius);
+      padding: 20px;
+    }
+
+    .iq-toggle-info p {
+      margin-bottom: 5px;
+    }
+    
+    .iq-toggle-price {
+      color: var(--iq-accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .iq-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+
+    .iq-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .iq-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--iq-border);
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .iq-slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: var(--iq-text-main);
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .iq-slider {
+      background-color: var(--iq-accent);
+    }
+
+    input:focus + .iq-slider {
+      box-shadow: 0 0 1px var(--iq-accent);
+    }
+
+    input:checked + .iq-slider:before {
+      transform: translateX(22px);
+      background-color: #000;
+    }
+
+    /* Summary Card */
+    .iq-summary {
+      position: sticky;
+      top: 40px;
+    }
+
+    .iq-summary-card {
+      background-color: var(--iq-bg-summary);
+      border: 1px solid var(--iq-border);
+      border-radius: var(--iq-radius);
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .iq-summary-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      color: var(--iq-text-main);
+      border-bottom: 1px solid var(--iq-border);
+      padding-bottom: 15px;
+    }
+
+    .iq-summary-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    .iq-summary-label {
+      color: var(--iq-text-sec);
+    }
+
+    .iq-summary-val {
+      font-weight: 500;
+      text-align: right;
+    }
+
+    .iq-divider {
+      border: 0;
+      height: 1px;
+      background: var(--iq-border);
+      margin: 20px 0;
+    }
+
+    .iq-total {
+      margin-bottom: 25px;
+    }
+
+    .iq-total-label {
+      font-size: 1.1rem;
+      color: var(--iq-text-sec);
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .iq-total-values {
+      text-align: right;
+    }
+
+    .iq-total-cop {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--iq-accent);
+      line-height: 1.2;
+    }
+
+    .iq-total-usd {
+      font-size: 1.1rem;
+      color: var(--iq-text-sec);
+    }
+
+    .iq-notes {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+    
+    .iq-notes p {
+      margin-bottom: 5px;
+    }
+
+    .iq-btn {
+      width: 100%;
+      background-color: var(--iq-accent);
+      color: #000;
+      border: none;
+      padding: 16px;
+      border-radius: var(--iq-radius-sm);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transition: all var(--iq-transition);
+    }
+
+    .iq-btn:hover {
+      background-color: var(--iq-accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 230, 118, 0.2);
+    }
+
+    .iq-icon-wa {
+      width: 22px;
+      height: 22px;
+    }
+  </style>
+
+  <div class="iq-container">
+    <div class="iq-header">
+      <h2 class="iq-title">Cotiza tu <span class="iq-accent-text">Proyecto</span></h2>
+      <p class="iq-subtitle">Obtén una estimación instantánea del costo de tu sitio web</p>
+    </div>
+
+    <div class="iq-layout">
+      <!-- Izquierda: Formulario -->
+      <div class="iq-form">
+        <!-- Paso 1 -->
+        <div class="iq-step">
+          <h3 class="iq-step-title">1. Selecciona el tipo de proyecto</h3>
+          <div class="iq-cards" id="iq-cards-container">
+            <!-- Card 1 -->
+            <div class="iq-card iq-active" data-type="Landing Page" data-cop="800000" data-usd="218">
+              <h4 class="iq-card-title">Landing Page</h4>
+              <p class="iq-card-price">$800.000 COP / $218 USD</p>
+              <ul class="iq-card-features">
+                <li>1 página de venta</li>
+                <li>Hosting + dominio gratis 1er año</li>
+                <li>SEO técnico, indexación Google</li>
+              </ul>
+            </div>
+            <!-- Card 2 -->
+            <div class="iq-card" data-type="Página Web Informativa" data-cop="1500000" data-usd="410">
+              <h4 class="iq-card-title">Página Web Informativa</h4>
+              <p class="iq-card-price">$1.500.000 COP / $410 USD</p>
+              <ul class="iq-card-features">
+                <li>Hasta 4 secciones</li>
+                <li>¿Quiénes somos?, contacto</li>
+                <li>Integración WhatsApp</li>
+                <li>Hosting + dominio gratis 1er año</li>
+                <li>SEO, indexación</li>
+              </ul>
+            </div>
+            <!-- Card 3 -->
+            <div class="iq-card" data-type="Tienda Online / E-commerce" data-cop="2600000" data-usd="700">
+              <h4 class="iq-card-title">Tienda Online / E-commerce</h4>
+              <p class="iq-card-price">$2.600.000 COP / $700 USD</p>
+              <ul class="iq-card-features">
+                <li>Hasta 4 secciones</li>
+                <li>Carga de hasta 50 productos</li>
+                <li>Pasarela de pagos y capacitación</li>
+                <li>Hosting + dominio gratis 1er año</li>
+                <li>SEO, indexación</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="iq-step">
+          <h3 class="iq-step-title">2. Secciones o páginas adicionales</h3>
+          <p class="iq-step-desc">Añade secciones extra a tu sitio por <strong>$150.000 COP / $40 USD</strong> cada una.</p>
+          <div class="iq-range-container">
+            <div class="iq-range-display">
+              <span>Secciones extra:</span>
+              <span class="iq-range-val-text"><span id="iq-extras-val-display">0</span></span>
+            </div>
+            <input type="range" id="iq-extras-input" class="iq-range" min="0" max="10" value="0" step="1">
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="iq-step">
+          <div class="iq-toggle-row">
+            <div class="iq-toggle-info">
+              <h3 class="iq-step-title" style="margin-bottom: 8px;">3. Mantenimiento mensual</h3>
+              <p class="iq-toggle-price" id="iq-maint-price">+$200.000 COP / +$55 USD / mes</p>
+              <div id="iq-maint-details" style="display: none; margin-top: 10px;">
+                <p class="iq-step-desc" style="margin-bottom: 6px;">Actualizaciones, soporte técnico y respaldo mensual de tu sitio.</p>
+                <p style="font-size: 0.85rem; color: var(--iq-text-sec);">* Este es un costo recurrente mensual, separado del total del proyecto.</p>
+              </div>
+            </div>
+            <label class="iq-switch">
+              <input type="checkbox" id="iq-maintenance-input">
+              <span class="iq-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Derecha: Resumen -->
+      <div class="iq-summary">
+        <div class="iq-summary-card">
+          <h3 class="iq-summary-title">Resumen de cotización</h3>
+          
+          <div class="iq-summary-row">
+            <span class="iq-summary-label" id="iq-sum-type-label">Landing Page</span>
+            <span class="iq-summary-val" id="iq-sum-type-val">$800.000 COP<br><small style="color:var(--iq-text-sec)">$218 USD</small></span>
+          </div>
+
+          <div class="iq-summary-row" id="iq-sum-extras-row" style="display: none;">
+            <span class="iq-summary-label">Secciones extra (<span id="iq-sum-extras-count">0</span>)</span>
+            <span class="iq-summary-val" id="iq-sum-extras-val">$0 COP<br><small style="color:var(--iq-text-sec)">$0 USD</small></span>
+          </div>
+
+          <div class="iq-summary-row" id="iq-sum-maint-row" style="display: none;">
+            <span class="iq-summary-label">Mantenimiento</span>
+            <span class="iq-summary-val" id="iq-sum-maint-val">+$200.000 COP / mes<br><small style="color:var(--iq-text-sec)">+$55 USD / mes</small></span>
+          </div>
+
+          <hr class="iq-divider">
+
+          <div class="iq-total">
+            <span class="iq-total-label">Total del proyecto</span>
+            <div class="iq-total-values">
+              <div class="iq-total-cop" id="iq-sum-total-cop">$800.000 COP</div>
+              <div class="iq-total-usd" id="iq-sum-total-usd">$218 USD</div>
+            </div>
+          </div>
+
+          <div class="iq-notes">
+            <p>* Hosting y dominio gratis el primer año incluidos.</p>
+            <p>* Todos los proyectos incluyen SEO técnico e indexación en Google.</p>
+          </div>
+
+          <button id="iq-btn-whatsapp" class="iq-btn">
+            <svg viewBox="0 0 24 24" class="iq-icon-wa" fill="currentColor">
+              <path d="M12.031 0C5.397 0 .018 5.378.018 12.012c0 2.122.553 4.192 1.603 6.014L.027 24l6.113-1.604c1.748.955 3.737 1.458 5.882 1.458 6.634 0 12.013-5.378 12.013-12.012S18.665 0 12.031 0zm0 21.844c-1.8 0-3.565-.483-5.115-1.4l-.366-.217-3.8.997 1.015-3.704-.237-.378C2.527 15.42 2.017 13.738 2.017 12.012c0-5.523 4.492-10.015 10.014-10.015s10.014 4.492 10.014 10.015-4.492 10.015-10.014 10.015zm5.441-7.443c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.149-.148.297-.346.446-.545.148-.198.198-.346.297-.545.099-.198.05-.396-.025-.544-.075-.149-.669-1.61-.916-2.204-.242-.58-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.371-.273.297-1.041 1.016-1.041 2.477s1.065 2.873 1.214 3.072c.148.198 2.096 3.199 5.077 4.487.71.307 1.264.49 1.694.627.712.227 1.36.195 1.871.118.571-.086 1.758-.718 2.006-1.411.248-.693.248-1.288.174-1.411-.074-.124-.272-.198-.57-.347z"/>
+            </svg>
+            Solicitar esta cotización por WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Configuration values
+      const EXTRA_SECTION_COP = 150000;
+      const EXTRA_SECTION_USD = 40;
+      const WHATSAPP_NUMBER = "573116061807";
+
+      // Form Elements
+      const cards = document.querySelectorAll('.iq-card');
+      const extrasInput = document.getElementById('iq-extras-input');
+      const extrasValDisplay = document.getElementById('iq-extras-val-display');
+      const maintenanceInput = document.getElementById('iq-maintenance-input');
+      const btnWhatsapp = document.getElementById('iq-btn-whatsapp');
+
+      // Summary Elements
+      const sumTypeLabel = document.getElementById('iq-sum-type-label');
+      const sumTypeVal = document.getElementById('iq-sum-type-val');
+      const sumExtrasRow = document.getElementById('iq-sum-extras-row');
+      const sumExtrasCount = document.getElementById('iq-sum-extras-count');
+      const sumExtrasVal = document.getElementById('iq-sum-extras-val');
+      const sumMaintRow = document.getElementById('iq-sum-maint-row');
+      const sumTotalCop = document.getElementById('iq-sum-total-cop');
+      const sumTotalUsd = document.getElementById('iq-sum-total-usd');
+
+      // Maintenance toggle elements
+      const maintDetails = document.getElementById('iq-maint-details');
+      const maintPrice = document.getElementById('iq-maint-price');
+
+      // State
+      let state = {
+        type: 'Landing Page',
+        baseCop: 800000,
+        baseUsd: 218,
+        extras: 0,
+        maintenance: false
+      };
+
+      // Formatter function
+      const formatCurrency = (value) => {
+        return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      };
+
+      // Update UI function
+      const updateSummary = () => {
+        // Calculations
+        const extrasTotalCop = state.extras * EXTRA_SECTION_COP;
+        const extrasTotalUsd = state.extras * EXTRA_SECTION_USD;
+        
+        const totalCop = state.baseCop + extrasTotalCop;
+        const totalUsd = state.baseUsd + extrasTotalUsd;
+
+        // Base Plan updates
+        sumTypeLabel.textContent = state.type;
+        sumTypeVal.innerHTML = `$${formatCurrency(state.baseCop)} COP<br><small style="color:var(--iq-text-sec)">$${formatCurrency(state.baseUsd)} USD</small>`;
+
+        // Extras updates
+        if (state.extras > 0) {
+          sumExtrasRow.style.display = 'flex';
+          sumExtrasCount.textContent = state.extras;
+          sumExtrasVal.innerHTML = `$${formatCurrency(extrasTotalCop)} COP<br><small style="color:var(--iq-text-sec)">$${formatCurrency(extrasTotalUsd)} USD</small>`;
+        } else {
+          sumExtrasRow.style.display = 'none';
+        }
+
+        // Maintenance updates
+        if (state.maintenance) {
+          sumMaintRow.style.display = 'flex';
+        } else {
+          sumMaintRow.style.display = 'none';
+        }
+
+        // Totals update
+        sumTotalCop.textContent = `$${formatCurrency(totalCop)} COP`;
+        sumTotalUsd.textContent = `$${formatCurrency(totalUsd)} USD`;
+      };
+
+      // Event Listeners
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          // Remove active class from all
+          cards.forEach(c => c.classList.remove('iq-active'));
+          // Add active class to clicked
+          card.classList.add('iq-active');
+          
+          // Update state
+          state.type = card.dataset.type;
+          state.baseCop = parseInt(card.dataset.cop);
+          state.baseUsd = parseInt(card.dataset.usd);
+          
+          updateSummary();
+        });
+      });
+
+      extrasInput.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value);
+        state.extras = val;
+        extrasValDisplay.textContent = val;
+        updateSummary();
+      });
+
+      maintenanceInput.addEventListener('change', (e) => {
+        state.maintenance = e.target.checked;
+        if (state.maintenance) {
+          maintDetails.style.display = 'block';
+          maintPrice.style.marginBottom = '12px';
+        } else {
+          maintDetails.style.display = 'none';
+          maintPrice.style.marginBottom = '0';
+        }
+        updateSummary();
+      });
+
+      btnWhatsapp.addEventListener('click', () => {
+        const totalCop = state.baseCop + (state.extras * EXTRA_SECTION_COP);
+        const totalUsd = state.baseUsd + (state.extras * EXTRA_SECTION_USD);
+        
+        const text = `Hola InnovaCode! 👋 Me interesa cotizar un proyecto:
+
+📌 Tipo: ${state.type}
+📄 Secciones extra: ${state.extras}
+🔧 Mantenimiento mensual: ${state.maintenance ? 'Sí' : 'No'}
+
+💰 Total estimado: $${formatCurrency(totalCop)} COP / $${formatCurrency(totalUsd)} USD
+
+¿Podemos agendar una consulta gratuita?`;
+
+        const encodedText = encodeURIComponent(text);
+        const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedText}`;
+        
+        window.open(waUrl, '_blank');
+      });
+
+      // Initialize
+      updateSummary();
+    });
+  </script>
+</section>
+<!-- FIN SECCIÓN COTIZADOR -->
+
+</body>
+</html>

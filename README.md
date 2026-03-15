@@ -32,12 +32,13 @@
 ### Funcionalidades Principales
 
 - ✅ **Single Page Application (SPA)** con navegación fluida y animaciones
-- ✅ **Formulario de Contacto** con validación en tiempo real
+- ✅ **Cotizador de Proyectos Interactivo** con cálculos en tiempo real
+- ✅ **Formulario de Contacto oculto** con validación en tiempo real (mantenido visualmente oculto en favor del cotizador)
 - ✅ **Botón de WhatsApp flotante** con mensaje prellenado
 - ✅ **Scroll suave** entre secciones con navegación inteligente
 - ✅ **Botón "Volver arriba"** que aparece al hacer scroll
 - ✅ **Animaciones on-scroll** para mejor experiencia visual
-- ✅ **Tema oscuro profesional** con acentos en verde neón (#00FF7F)
+- ✅ **Soporte para Tema Claro/Oscuro** profesional con acentos en verde neon (#00FF7F)
 - ✅ **Totalmente responsive** - Optimizado para móvil, tablet y desktop
 
 ### Secciones del Sitio
@@ -48,7 +49,8 @@
 | **Servicios** | `#servicios` | 4 servicios principales con iconos animados |
 | **Propuesta de Valor** | `#valor` | Beneficios y diferenciales de la empresa |
 | **Proceso** | `#proceso` | Metodología de trabajo en 4 pasos |
-| **Contacto** | `#contacto` | Formulario funcional con validaciones |
+| **Cotizador** | `#cotizador` | Cotizador interactivo para estimar costos de proyectos con enlace a WhatsApp |
+| **Contacto** | `#contacto` | Formulario funcional con validaciones (Oculto visualmente) |
 | **Footer** | - | Links de navegación y redes sociales |
 
 ---
@@ -274,7 +276,9 @@ innovacode-web/
 ├── src/
 │   ├── components/             # Componentes React
 │   │   ├── BackToTop.tsx       # Botón volver arriba
-│   │   ├── ContactForm.tsx     # Formulario de contacto
+│   │   ├── ContactForm.tsx     # Formulario de contacto (Oculto)
+│   │   ├── Cotizador.tsx       # Cotizador interactivo de proyectos
+│   │   ├── Cotizador.css       # Estilos específicos del cotizador
 │   │   ├── Footer.tsx          # Pie de página
 │   │   ├── Hero.tsx            # Sección principal
 │   │   ├── Navigation.tsx      # Barra de navegación
@@ -497,17 +501,19 @@ Documento README en español para el proyecto presente en esta carpeta.
     - `Services.tsx` - sección de servicios
     - `ValueProposition.tsx` - propuesta de valor
     - `Process.tsx` - proceso de trabajo / pasos
-    - `ContactForm.tsx` - formulario de contacto (validación en cliente, envío simulado)
+    - `Cotizador.tsx` - cotizador de proyectos interactivo con envío a WhatsApp
+    - `ContactForm.tsx` - formulario de contacto (oculto en el layout actual)
     - `Footer.tsx` - pie de página
     - `WhatsAppButton.tsx` - botón flotante que abre chat de WhatsApp
     - `BackToTop.tsx` - botón para volver arriba
 
 ## Funcionalidades detectadas
 
-- Single Page Application (SPA) con navegación interna por secciones (anclas como `#contacto`).
-- Diseño responsivo implementado con Tailwind CSS.
-- Formulario de contacto con validación en cliente (campos obligatorios, validación de email, longitud mínima del mensaje). El envío está simulado con un retardo y muestra estados: enviando, éxito y error.
-- Botón flotante de WhatsApp que abre una conversación prellenada (usa enlace `https://wa.me/` con un número de ejemplo `+57 300 123 4567`).
+- Single Page Application (SPA) con navegación interna por secciones (anclas como `#cotizador`).
+- Diseño responsivo implementado con Tailwind CSS y CSS Vanilla.
+- Cotizador de Proyectos interactivo: Permite estimar costos con base en tipo de proyecto, secciones extra y mantenimiento. Actualiza valores en COP y USD en tiempo real y finaliza enviando un mensaje prellenado por WhatsApp. Integrado nativamente con el modo Claro y Oscuro del sitio.
+- Formulario de contacto con validación en cliente (actualmente oculto vía CSS). El envío está simulado con un retardo y muestra estados o puede enlazarse a integraciones n8n.
+- Botón flotante de WhatsApp que abre una conversación prellenada.
 - Componentes visuales con iconos de `lucide-react`.
 
 ## Especificaciones y detalles importantes

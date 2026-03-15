@@ -6,6 +6,7 @@ import ValueProposition from './components/ValueProposition';
 import Clients from './components/Clients';
 import Process from './components/Process';
 import ContactForm from './components/ContactForm';
+import Cotizador from './components/Cotizador';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import BackToTop from './components/BackToTop';
@@ -21,7 +22,11 @@ const HomePage = () => (
     <ValueProposition />
     <Clients />
     <Process />
-    <ContactForm />
+    {/* Formulario oculto por solicitud */}
+    <div className="hidden" style={{ display: 'none' }}>
+      <ContactForm />
+    </div>
+    <Cotizador />
   </>
 );
 
