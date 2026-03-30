@@ -1,4 +1,5 @@
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { ScrollIndicator } from './ui/ScrollIndicator';
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -49,10 +50,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-accent rounded-full flex items-start justify-center p-2">
-          <div className="w-1.5 h-3 bg-accent rounded-full"></div>
-        </div>
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+        <ScrollIndicator />
       </div>
     </section>
   );

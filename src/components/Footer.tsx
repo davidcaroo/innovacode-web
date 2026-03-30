@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-text-primary font-semibold mb-4">NavegaciÃ³n</h3>
+            <h3 className="text-text-primary font-semibold mb-4">Navegación</h3>
             <ul className="space-y-2">
               <li>
                 <a href="#hero" className="text-text-secondary hover:text-accent transition-colors">
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-text-primary font-semibold mb-4">SÃ­guenos</h3>
+            <h3 className="text-text-primary font-semibold mb-4">Síguenos</h3>
             <div className="flex space-x-4 mb-4">
               <a
                 href="https://instagram.com/innovacode.click"
@@ -82,14 +82,14 @@ export default function Footer() {
         <div className="border-t border-border-primary pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-text-muted text-sm text-center md:text-left">
-              Â© {currentYear} InnovaCode Solutions S.A.S. Todos los derechos reservados.
+              © {currentYear} InnovaCode Solutions S.A.S. Todos los derechos reservados.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link to="/politica-privacidad" className="text-text-muted hover:text-accent transition-colors">
-                PolÃ­tica de Privacidad
+                Política de Privacidad
               </Link>
               <Link to="/terminos-condiciones" className="text-text-muted hover:text-accent transition-colors">
-                TÃ©rminos y Condiciones
+                Términos y Condiciones
               </Link>
             </div>
           </div>
