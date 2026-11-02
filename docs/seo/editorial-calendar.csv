@@ -1,0 +1,14 @@
+publish_date,cluster,content_type,working_title,target_url,intent,author,reviewer,evidence_required,primary_cta,status
+2026-11-09,custom-software,service-refresh,Desarrollo de software a medida para operaciones colombianas,/servicios/desarrollo-software-a-medida/,commercial,Por asignar,Por asignar,Experiencia y proceso verificable,Solicitar diagnostico,planned
+2026-11-16,business-ai,service-refresh,Inteligencia artificial aplicada a problemas empresariales,/servicios/inteligencia-artificial/,commercial,Por asignar,Por asignar,Casos de uso y límites verificables,Solicitar diagnostico,planned
+2026-11-23,process-automation,service-refresh,Automatización de procesos con impacto medible,/servicios/automatizacion-procesos/,commercial,Por asignar,Por asignar,Flujo antes y después autorizado,Identificar proceso,planned
+2026-11-30,web-development,service-refresh,Desarrollo web orientado a conversión y rendimiento,/servicios/desarrollo-web/,commercial,Por asignar,Por asignar,Metodología y métricas verificables,Cotizar proyecto,planned
+2026-12-07,custom-software,case-study,Caso aprobado de software a medida,/casos-de-exito/,commercial,Por asignar,Por asignar,Permiso del cliente y resultado medible,Solicitar diagnostico,blocked-evidence
+2026-12-14,business-ai,support-article,Cómo priorizar un caso de uso de IA en una empresa,/recursos/ia-empresas-caso-de-uso/,informational,Por asignar,Por asignar,Fuentes y experiencia del equipo,Solicitar diagnostico,planned
+2026-12-21,process-automation,support-article,Qué proceso automatizar primero y cómo medirlo,/recursos/automatizar-procesos-por-donde-empezar/,informational,Por asignar,Por asignar,Marco de priorización probado,Identificar proceso,planned
+2026-12-28,web-development,support-article,Señales de que una web empresarial no convierte,/recursos/web-que-convierte/,informational,Por asignar,Por asignar,Checklist técnico y analítica,Cotizar proyecto,planned
+2027-01-04,custom-software,support-article,Cómo elegir entre SaaS y software a medida,/recursos/como-elegir-software-a-medida/,informational,Por asignar,Por asignar,Criterios y ejemplos verificables,Solicitar diagnostico,planned
+2027-01-11,business-ai,case-study,Caso aprobado de IA empresarial,/casos-de-exito/,commercial,Por asignar,Por asignar,Permiso del cliente y resultado medible,Solicitar diagnostico,blocked-evidence
+2027-01-18,process-automation,case-study,Caso aprobado de automatización de procesos,/casos-de-exito/,commercial,Por asignar,Por asignar,Permiso del cliente y resultado medible,Identificar proceso,blocked-evidence
+2027-01-25,web-development,case-study,Caso aprobado de desarrollo web empresarial,/casos-de-exito/,commercial,Por asignar,Por asignar,Permiso del cliente y resultado medible,Cotizar proyecto,blocked-evidence
+2027-02-01,brand,monthly-consolidation,Actualizar hubs y enlaces internos con datos del trimestre,/recursos/,mixed,Por asignar,Por asignar,Search Console y GA4 revisados,Contactar,planned
