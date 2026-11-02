@@ -1,12 +1,12 @@
 RewriteEngine On
 RewriteBase /
 
-# Exact legacy redirects: anchored rules avoid chains and prefix loops.
-RedirectMatch 301 ^/cotizador\.html$ /cotizador/
-RedirectMatch 301 ^/politica-privacidad$ /politica-privacidad/
-RedirectMatch 301 ^/terminos-condiciones$ /terminos-condiciones/
-RedirectMatch 301 ^/servicios$ /servicios/
-RedirectMatch 301 ^/contacto$ /contacto/
+# Absolute legacy redirects run first so HTTP + www + old-path requests resolve in one hop.
+RewriteRule ^cotizador\.html$ https://innovacode.click/cotizador/ [R=301,L,NE]
+RewriteRule ^politica-privacidad$ https://innovacode.click/politica-privacidad/ [R=301,L,NE]
+RewriteRule ^terminos-condiciones$ https://innovacode.click/terminos-condiciones/ [R=301,L,NE]
+RewriteRule ^servicios$ https://innovacode.click/servicios/ [R=301,L,NE]
+RewriteRule ^contacto$ https://innovacode.click/contacto/ [R=301,L,NE]
 
 # Canonical protocol and host, preserving path and query string.
 RewriteCond %{HTTPS} !=on [OR]
@@ -18,7 +18,7 @@ ErrorDocument 404 /404.html
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://n8nhero-ac01c953fd21.herokuapp.com https://www.google-analytics.com https://*.google-analytics.com; frame-src https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
   <FilesMatch "\.(?:css|js|mjs|png|jpg|jpeg|webp|avif|svg|ico|woff2)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>

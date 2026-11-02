@@ -12,8 +12,8 @@ describe('production migration contract', () => {
       const [source, target, status] = line.split(',');
       if (!source.startsWith('/')) continue;
       expect(status).toBe('301');
-      const escaped = source.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      expect(htaccess).toContain(`RedirectMatch 301 ^${escaped}$ ${target}`);
+      const ruleSource = source.replace(/^\//, '').replace('.', '\\.');
+      expect(htaccess).toContain(`RewriteRule ^${ruleSource}$ https://innovacode.click${target} [R=301,L,NE]`);
     }
   });
 
@@ -26,8 +26,18 @@ describe('production migration contract', () => {
   it('deploys only a fully validated immutable build artifact', () => {
     expect(deploy).toContain('needs: quality');
     expect(deploy).toContain('actions/download-artifact@v4');
+    expect(deploy).toContain('PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}');
+    expect(deploy).toContain('PUBLIC_CONTACT_ENDPOINT: ${{ vars.PUBLIC_CONTACT_ENDPOINT }}');
+    expect(deploy).toContain('npm run verify:build-config');
     expect(deploy).toContain('npm run verify:production');
     expect(deploy).toContain('node-version: "24"');
     expect(deploy).toContain('dangerous-clean-slate: false');
+  });
+
+  it('orders absolute legacy redirects before host normalization for one-hop combined requests', () => {
+    const legacy = htaccess.indexOf('RewriteRule ^cotizador\\.html$ https://innovacode.click/cotizador/');
+    const host = htaccess.indexOf('RewriteCond %{HTTPS} !=on [OR]');
+    expect(legacy).toBeGreaterThan(0);
+    expect(legacy).toBeLessThan(host);
   });
 });

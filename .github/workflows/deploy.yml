@@ -12,6 +12,11 @@ concurrency:
 jobs:
   quality:
     runs-on: ubuntu-latest
+    environment: production
+    env:
+      PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}
+      PUBLIC_WHATSAPP_NUMBER: ${{ vars.PUBLIC_WHATSAPP_NUMBER }}
+      PUBLIC_CONTACT_ENDPOINT: ${{ vars.PUBLIC_CONTACT_ENDPOINT }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -24,6 +29,7 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - run: npm run verify:build-config
       - run: npm run test:e2e
       - run: npm run lighthouse
       - uses: actions/upload-artifact@v4

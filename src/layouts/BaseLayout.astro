@@ -84,7 +84,6 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID ?? siteConfig.gtmId;
       <p>© {new Date().getFullYear()} {siteConfig.name}</p>
     </footer>
     <ConsentBanner />
-    {gtmId && <noscript><iframe title="Google Tag Manager" src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>}
   </body>
 </html>
 

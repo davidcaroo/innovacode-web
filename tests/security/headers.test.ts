@@ -17,5 +17,12 @@ describe('production headers', () => {
     expect(htaccess).toContain('mod_deflate.c');
     expect(htaccess).toContain('immutable');
     expect(htaccess).toContain('Content-Security-Policy');
+    expect(htaccess).toContain("connect-src 'self' https:");
+  });
+
+  it('does not bypass consent through the GTM no-JavaScript iframe', async () => {
+    const layout = await readFile('src/layouts/BaseLayout.astro', 'utf8');
+    expect(layout).not.toContain('googletagmanager.com/ns.html');
+    expect(layout).not.toContain('<noscript>');
   });
 });

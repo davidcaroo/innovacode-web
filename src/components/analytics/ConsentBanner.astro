@@ -16,6 +16,8 @@
     const key = 'innovacode-consent-v1';
     const panel = document.getElementById('consent-panel');
     if (!panel) return;
+    let returnFocus = null;
+    const controls = () => Array.from(panel.querySelectorAll('a[href], button:not([disabled])')).filter((control) => control instanceof HTMLElement);
     const values = (state) => ({
       ad_storage: state,
       ad_user_data: state,
@@ -24,8 +26,32 @@
       functionality_storage: 'granted',
       security_storage: 'granted',
     });
-    const open = () => { panel.hidden = false; document.body.style.overflow = 'hidden'; };
-    const close = () => { panel.hidden = true; document.body.style.overflow = ''; };
+    const open = () => {
+      returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      panel.hidden = false;
+      document.body.style.overflow = 'hidden';
+      queueMicrotask(() => controls().find((control) => control instanceof HTMLButtonElement)?.focus());
+    };
+    const close = () => {
+      panel.hidden = true;
+      document.body.style.overflow = '';
+      if (returnFocus && returnFocus !== document.body) returnFocus.focus();
+      returnFocus = null;
+    };
+    panel.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const focusable = controls();
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
     panel.querySelectorAll('[data-consent]').forEach((button) => button.addEventListener('click', () => {
       const consent = values(button.dataset.consent);
       localStorage.setItem(key, JSON.stringify(consent));

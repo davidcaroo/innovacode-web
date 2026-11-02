@@ -2,6 +2,7 @@
 import ContactForm from '../components/islands/ContactForm';
 import MarketingLayout from '../layouts/MarketingLayout.astro';
 const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? 'https://n8nhero-ac01c953fd21.herokuapp.com/webhook/contacto-web-lead';
+if (new URL(endpoint).protocol !== 'https:') throw new Error('PUBLIC_CONTACT_ENDPOINT must use HTTPS');
 ---
 <MarketingLayout title="Contacto | InnovaCode Solutions" description="Cuéntanos qué proceso, producto o canal necesitas mejorar. Revisaremos tu solicitud y el siguiente paso más sensato." eyebrow="Contacto" heading="Hablemos del reto, no solo de la herramienta" intro="Describe el contexto, qué necesitas cambiar y qué resultado esperas. No envíes información sensible o credenciales.">
   <section class="contact-wrap"><ContactForm client:load {endpoint} /></section>
