@@ -16,7 +16,7 @@ const { title, description, heading, eyebrow, intro, breadcrumbs = [], schema, n
 ---
 
 <BaseLayout {title} {description} {schema} {noindex}>
-  <main id="contenido">
+  <main id="contenido" tabindex="-1">
     {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
     <header class="content-hero">
       {eyebrow && <p class="eyebrow">{eyebrow}</p>}

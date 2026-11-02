@@ -14,7 +14,7 @@ const { title, description, eyebrow, heading, intro, noindex } = Astro.props;
 ---
 
 <BaseLayout {title} {description} {noindex}>
-  <main id="contenido">
+  <main id="contenido" tabindex="-1">
     <header class="page-hero">
       {eyebrow && <p class="eyebrow">{eyebrow}</p>}
       <h1>{heading}</h1>

@@ -51,8 +51,7 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID ?? siteConfig.gtmId;
     <script is:inline>
       (() => {
         const saved = localStorage.getItem('innovacode-theme');
-        const preferred = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        document.documentElement.dataset.theme = saved || preferred;
+        document.documentElement.dataset.theme = saved || 'dark';
       })();
     </script>
   </head>
@@ -110,5 +109,9 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID ?? siteConfig.gtmId;
     .site-header nav a:not(.nav-cta) { display: none; }
     .site-footer { grid-template-columns: 1fr; align-items: start; }
     .site-footer nav { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
   }
 </style>
