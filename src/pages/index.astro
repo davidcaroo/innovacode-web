@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { organizationSchema, websiteSchema } from '../lib/seo';
 ---
 
 <BaseLayout
   title="InnovaCode Solutions | Software, IA y automatización en Colombia"
   description="Diseñamos software a medida, soluciones de inteligencia artificial y automatizaciones que convierten procesos complejos en crecimiento medible."
+  schema={[organizationSchema(), websiteSchema()]}
 >
   <main id="contenido">
     <section class="hero">
