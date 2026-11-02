@@ -1,0 +1,8 @@
+source_path,target_path,status,reason,verified
+/cotizador.html,/cotizador/,301,Consolidate duplicate calculator,false
+/politica-privacidad,/politica-privacidad/,301,Canonical trailing slash,false
+/terminos-condiciones,/terminos-condiciones/,301,Canonical trailing slash,false
+/servicios,/servicios/,301,Canonical trailing slash,false
+/contacto,/contacto/,301,Canonical trailing slash,false
+http://innovacode.click/*,https://innovacode.click/*,301,Force HTTPS,false
+https://www.innovacode.click/*,https://innovacode.click/*,301,Force canonical host,false

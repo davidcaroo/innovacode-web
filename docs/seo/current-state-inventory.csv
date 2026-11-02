@@ -1,0 +1,13 @@
+source_url,type,current_status,current_canonical,indexability,analytics_16m,backlinks,target_url,action,notes
+https://innovacode.click/,page,200,https://innovacode.click/,indexable,unavailable,unavailable,https://innovacode.click/,migrate,"SPA home; shared metadata"
+https://innovacode.click/politica-privacidad,page,200,https://innovacode.click/,indexable,unavailable,unavailable,https://innovacode.click/politica-privacidad/,migrate,"Client route inherits home canonical"
+https://innovacode.click/terminos-condiciones,page,200,https://innovacode.click/,indexable,unavailable,unavailable,https://innovacode.click/terminos-condiciones/,migrate,"Client route inherits home canonical"
+https://innovacode.click/cotizador.html,page,200,,indexable,unavailable,unavailable,https://innovacode.click/cotizador/,301,"Duplicates React calculator"
+https://innovacode.click/#hero,fragment,200,https://innovacode.click/,not-separate-url,unavailable,unavailable,https://innovacode.click/,replace-link,"Remove from sitemap"
+https://innovacode.click/#servicios,fragment,200,https://innovacode.click/,not-separate-url,unavailable,unavailable,https://innovacode.click/servicios/,replace-link,"Remove from sitemap"
+https://innovacode.click/#valor,fragment,200,https://innovacode.click/,not-separate-url,unavailable,unavailable,https://innovacode.click/,replace-link,"Remove from sitemap"
+https://innovacode.click/#proceso,fragment,200,https://innovacode.click/,not-separate-url,unavailable,unavailable,https://innovacode.click/metodologia/,replace-link,"Remove from sitemap"
+https://innovacode.click/#cotizador,fragment,200,https://innovacode.click/,not-separate-url,unavailable,unavailable,https://innovacode.click/cotizador/,replace-link,"Remove from sitemap"
+https://innovacode.click/#contacto,fragment,200,https://innovacode.click/,not-separate-url,unavailable,unavailable,https://innovacode.click/contacto/,replace-link,"Remove from sitemap"
+https://innovacode.click/og-image.jpg,asset,200,,not-index-page,unavailable,unavailable,https://innovacode.click/og-image.jpg,retain,"Existing social image"
+https://innovacode.click/logo.png,asset,404,,not-index-page,unavailable,unavailable,,remove-reference,"Referenced by JSON-LD but absent"
