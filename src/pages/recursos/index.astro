@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import ContentCard from '../../components/ContentCard.astro';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a,b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
+---
+<MarketingLayout title="Recursos sobre software, IA y automatización | InnovaCode" description="Guías prácticas para tomar mejores decisiones sobre software, inteligencia artificial, automatización y crecimiento web." eyebrow="Recursos" heading="Decisiones tecnológicas con más contexto" intro="Contenido práctico construido alrededor de preguntas que aparecen antes, durante y después de un proyecto digital.">
+  <section class="listing">{posts.map((post) => <ContentCard href={`/recursos/${post.id}/`} title={post.data.title} description={post.data.description} label={post.data.cluster} />)}</section>
+</MarketingLayout>
+<style>.listing{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:80rem;margin:0 auto;padding:0 1.25rem 7rem}@media(max-width:720px){.listing{grid-template-columns:1fr}}</style>

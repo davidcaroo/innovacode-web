@@ -1,0 +1,8 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import { breadcrumbSchema } from '../../lib/seo';
+export async function getStaticPaths(){const entries=await getCollection('cases',({data})=>!data.draft&&data.evidenceApproved);return entries.map(entry=>({params:{slug:entry.id},props:{entry}}));}
+const {entry}=Astro.props; const {Content}=await render(entry); const path=`/casos-de-exito/${entry.id}/`; const crumbs=[{name:'Inicio',href:'/'},{name:'Casos de éxito',href:'/casos-de-exito/'},{name:entry.data.title,href:path}];
+---
+<ContentLayout title={`${entry.data.title} | InnovaCode`} description={entry.data.description} heading={entry.data.title} eyebrow={entry.data.client} intro={entry.data.description} breadcrumbs={crumbs} schema={breadcrumbSchema(crumbs.map(({name,href})=>({name,path:href})))}><Content /></ContentLayout>

@@ -1,0 +1,13 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import { articleSchema, breadcrumbSchema } from '../../lib/seo';
+export async function getStaticPaths(){const entries=await getCollection('blog',({data})=>!data.draft);return entries.map(entry=>({params:{slug:entry.id},props:{entry}}));}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const path=`/recursos/${entry.id}/`;
+const crumbs=[{name:'Inicio',href:'/'},{name:'Recursos',href:'/recursos/'},{name:entry.data.title,href:path}];
+const schema=[articleSchema({headline:entry.data.title,description:entry.data.description,path,datePublished:entry.data.publishedAt.toISOString(),dateModified:entry.data.updatedAt?.toISOString()}),breadcrumbSchema(crumbs.map(({name,href})=>({name,path:href})))];
+---
+<ContentLayout title={`${entry.data.title} | InnovaCode`} description={entry.data.description} heading={entry.data.title} eyebrow={entry.data.cluster} intro={entry.data.description} breadcrumbs={crumbs} {schema}><Content /><aside class="article-cta" slot="after"><strong>{entry.data.cta}</strong><a href="/contacto/">Conversemos →</a></aside></ContentLayout>
+<style>.article-cta{display:flex;justify-content:space-between;gap:1rem;max-width:52rem;margin:0 auto 7rem;padding:1.5rem;border-top:1px solid var(--border-primary)}.article-cta a{color:#00ff7f;font-weight:800}</style>
