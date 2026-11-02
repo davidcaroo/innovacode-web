@@ -2,6 +2,8 @@
 import '../index.css';
 import '../styles/themes.css';
 
+import ConsentBanner from '../components/analytics/ConsentBanner.astro';
+import TagManager from '../components/analytics/TagManager.astro';
 import JsonLd from '../components/seo/JsonLd.astro';
 import SeoHead from '../components/seo/SeoHead.astro';
 import { siteConfig } from '../config/site';
@@ -24,6 +26,7 @@ const {
   noindex = false,
   schema,
 } = Astro.props;
+const gtmId = import.meta.env.PUBLIC_GTM_ID ?? siteConfig.gtmId;
 ---
 
 <!doctype html>
@@ -32,6 +35,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <TagManager id={gtmId} />
     <SeoHead {title} {description} {canonical} {image} {noindex} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -76,9 +80,12 @@ const {
         <a href="/politica-privacidad/">Privacidad</a>
         <a href="/politica-cookies/">Cookies</a>
         <a href="/terminos-condiciones/">Términos</a>
+        <button type="button" data-open-consent>Configurar cookies</button>
       </nav>
       <p>© {new Date().getFullYear()} {siteConfig.name}</p>
     </footer>
+    <ConsentBanner />
+    {gtmId && <noscript><iframe title="Google Tag Manager" src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`} height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>}
   </body>
 </html>
 
@@ -94,6 +101,7 @@ const {
   .brand span { color: #00ff7f; }
   .site-header nav, .site-footer nav { display: flex; align-items: center; gap: clamp(.8rem, 2vw, 1.5rem); }
   .site-header nav a, .site-footer a { color: var(--text-secondary); text-decoration: none; font-weight: 600; }
+  .site-footer button { padding: 0; color: var(--text-secondary); background: none; border: 0; font: inherit; font-weight: 600; cursor: pointer; }
   .site-header nav a:hover, .site-footer a:hover { color: #00ff7f; }
   .site-header .nav-cta { padding: .65rem 1rem; color: #0c0c0c; background: #00ff7f; border-radius: 999px; }
   .site-footer { display: grid; grid-template-columns: 2fr 1fr auto; align-items: end; gap: 2rem; padding: 3rem clamp(1rem, 5vw, 5rem); border-top: 1px solid var(--border-primary); }

@@ -1,0 +1,33 @@
+---
+export interface Props { id?: string | null }
+const { id } = Astro.props;
+---
+
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+  window.gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'granted',
+    security_storage: 'granted',
+    wait_for_update: 500,
+  });
+  try {
+    const savedConsent = JSON.parse(localStorage.getItem('innovacode-consent-v1') || 'null');
+    if (savedConsent) window.gtag('consent', 'update', savedConsent);
+  } catch { localStorage.removeItem('innovacode-consent-v1'); }
+</script>
+{id && (
+  <>
+    <script is:inline define:vars={{ id }}>
+      window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
+      const gtmScript = document.createElement('script');
+      gtmScript.async = true;
+      gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${encodeURIComponent(id)}`;
+      document.head.appendChild(gtmScript);
+    </script>
+  </>
+)}

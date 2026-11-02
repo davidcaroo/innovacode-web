@@ -16,6 +16,7 @@ export default defineConfig({
     env: {
       ...process.env,
       PUBLIC_WHATSAPP_NUMBER: '573116061807',
+      PUBLIC_GTM_ID: 'GTM-TEST123',
     },
   },
 });

@@ -1,0 +1,42 @@
+<div class="consent-backdrop" id="consent-panel" role="dialog" aria-modal="true" aria-labelledby="consent-title" hidden>
+  <section class="consent-card">
+    <p class="consent-eyebrow">Tu privacidad</p>
+    <h2 id="consent-title">Preferencias de privacidad</h2>
+    <p>Usamos almacenamiento necesario para que el sitio funcione. Con tu permiso, activamos analítica para entender qué contenido y recorridos son útiles.</p>
+    <a href="/politica-cookies/">Leer la política de cookies</a>
+    <div class="consent-actions">
+      <button type="button" data-consent="denied">Rechazar</button>
+      <button type="button" data-consent="granted">Aceptar todo</button>
+    </div>
+  </section>
+</div>
+
+<script is:inline>
+  (() => {
+    const key = 'innovacode-consent-v1';
+    const panel = document.getElementById('consent-panel');
+    if (!panel) return;
+    const values = (state) => ({
+      ad_storage: state,
+      ad_user_data: state,
+      ad_personalization: state,
+      analytics_storage: state,
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+    });
+    const open = () => { panel.hidden = false; document.body.style.overflow = 'hidden'; };
+    const close = () => { panel.hidden = true; document.body.style.overflow = ''; };
+    panel.querySelectorAll('[data-consent]').forEach((button) => button.addEventListener('click', () => {
+      const consent = values(button.dataset.consent);
+      localStorage.setItem(key, JSON.stringify(consent));
+      window.gtag?.('consent', 'update', consent);
+      close();
+    }));
+    document.querySelectorAll('[data-open-consent]').forEach((button) => button.addEventListener('click', open));
+    if (!localStorage.getItem(key)) open();
+  })();
+</script>
+
+<style is:global>
+  .consent-backdrop[hidden]{display:none}.consent-backdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:end center;padding:1rem;background:rgba(0,0,0,.6)}.consent-card{width:min(46rem,100%);box-sizing:border-box;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border-primary);border-radius:1.25rem;box-shadow:0 1.5rem 4rem rgba(0,0,0,.35)}.consent-eyebrow{margin:0;color:#00ff7f;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.consent-card h2{margin:.35rem 0 .75rem;font-size:1.7rem}.consent-card p:not(.consent-eyebrow){color:var(--text-secondary);line-height:1.6}.consent-card a{color:#00ff7f}.consent-actions{display:flex;justify-content:flex-end;gap:.75rem;margin-top:1.25rem}.consent-actions button{padding:.75rem 1rem;color:var(--text-primary);background:transparent;border:1px solid var(--border-primary);border-radius:999px;font:inherit;font-weight:800;cursor:pointer}.consent-actions button:last-child{color:#0c0c0c;background:#00ff7f;border-color:#00ff7f}
+</style>
