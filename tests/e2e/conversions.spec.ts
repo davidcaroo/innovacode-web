@@ -1,7 +1,13 @@
 import { expect, test } from '@playwright/test';
 
+const dismissConsent = async (page: import('@playwright/test').Page) => {
+  const reject = page.getByRole('button', { name: /rechazar/i });
+  if (await reject.isVisible()) await reject.click();
+};
+
 test('the quote calculator is keyboard operable and updates the total', async ({ page }) => {
   await page.goto('/cotizador/');
+  await dismissConsent(page);
   await page.waitForFunction(() => document.querySelector('astro-island')?.hasAttribute('ssr') === false);
   await expect(page.getByRole('heading', { level: 1, name: /cotiza/i })).toBeVisible();
 
@@ -22,6 +28,7 @@ test('the contact form confirms a successful lead without exposing PII in the UR
   });
 
   await page.goto('/contacto/');
+  await dismissConsent(page);
   await page.waitForFunction(() => document.querySelector('astro-island')?.hasAttribute('ssr') === false);
   await page.getByLabel('Nombre').fill('Persona de prueba');
   await page.getByLabel('Email').fill('persona@example.com');
