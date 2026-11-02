@@ -1,6 +1,8 @@
 RewriteEngine On
 RewriteBase /
 
+Redirect 301 /cotizador.html /cotizador/
+
 # Don't rewrite files or directories
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
