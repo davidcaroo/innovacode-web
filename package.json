@@ -10,6 +10,7 @@
     "lighthouse": "lhci autorun",
     "test": "vitest run",
     "test:e2e": "playwright test",
+    "verify:production": "node scripts/verify-production.mjs",
     "preview": "astro preview",
     "typecheck": "astro check"
   },

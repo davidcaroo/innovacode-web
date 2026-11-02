@@ -1,7 +1,17 @@
 RewriteEngine On
 RewriteBase /
 
-Redirect 301 /cotizador.html /cotizador/
+# Exact legacy redirects: anchored rules avoid chains and prefix loops.
+RedirectMatch 301 ^/cotizador\.html$ /cotizador/
+RedirectMatch 301 ^/politica-privacidad$ /politica-privacidad/
+RedirectMatch 301 ^/terminos-condiciones$ /terminos-condiciones/
+RedirectMatch 301 ^/servicios$ /servicios/
+RedirectMatch 301 ^/contacto$ /contacto/
+
+# Canonical protocol and host, preserving path and query string.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.innovacode\.click$ [NC]
+RewriteRule ^ https://innovacode.click%{REQUEST_URI} [R=301,L]
 ErrorDocument 404 /404.html
 
 <IfModule mod_headers.c>
