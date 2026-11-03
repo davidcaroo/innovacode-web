@@ -1,10 +1,36 @@
 RewriteEngine On
 RewriteBase /
 
-# Don't rewrite files or directories
+# Absolute legacy redirects run first so HTTP + www + old-path requests resolve in one hop.
+RewriteRule ^cotizador\.html$ https://innovacode.click/cotizador/ [R=301,L,NE]
+RewriteRule ^politica-privacidad$ https://innovacode.click/politica-privacidad/ [R=301,L,NE]
+RewriteRule ^terminos-condiciones$ https://innovacode.click/terminos-condiciones/ [R=301,L,NE]
+RewriteRule ^servicios$ https://innovacode.click/servicios/ [R=301,L,NE]
+RewriteRule ^contacto$ https://innovacode.click/contacto/ [R=301,L,NE]
+
+# Canonical protocol and host, preserving path and query string.
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.innovacode\.click$ [NC]
+RewriteRule ^ https://innovacode.click%{REQUEST_URI} [R=301,L]
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; frame-src https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+  <FilesMatch "\.(?:css|js|mjs|png|jpg|jpeg|webp|avif|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
-
-# Rewrite everything else to index.html
-RewriteRule ^ index.html [L]

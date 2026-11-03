@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import { breadcrumbSchema, serviceSchema } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('services', ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const path = `/servicios/${entry.id}/`;
+const crumbs = [{ name: 'Inicio', href: '/' }, { name: 'Servicios', href: '/servicios/' }, { name: entry.data.title, href: path }];
+const schema = [serviceSchema({ name: entry.data.title, description: entry.data.description, path }), breadcrumbSchema(crumbs.map(({ name, href }) => ({ name, path: href })))];
+---
+
+<ContentLayout title={`${entry.data.title} | InnovaCode`} description={entry.data.description} heading={entry.data.title} eyebrow="Servicio" intro={entry.data.description} breadcrumbs={crumbs} {schema}>
+  <Content />
+  <aside class="service-cta" slot="after"><h2>{entry.data.cta}</h2><p>Conversemos sobre el proceso, el resultado esperado y la mejor forma de validarlo.</p><a href="/contacto/">Solicitar diagnóstico</a></aside>
+</ContentLayout>
+
+<style>.service-cta{max-width:52rem;margin:0 auto 7rem;padding:2rem;background:var(--bg-card);border:1px solid var(--border-primary);border-radius:1.25rem}.service-cta h2{margin-top:0}.service-cta p{color:var(--text-secondary)}.service-cta a{display:inline-block;padding:.8rem 1rem;color:#0c0c0c;background:#00ff7f;border-radius:999px;font-weight:800;text-decoration:none}</style>

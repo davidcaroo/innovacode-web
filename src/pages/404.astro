@@ -1,0 +1,24 @@
+---
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+---
+
+<MarketingLayout
+  title="Página no encontrada | InnovaCode Solutions"
+  description="La página solicitada no existe. Regresa al inicio o explora nuestros servicios."
+  eyebrow="Error 404"
+  heading="Página no encontrada"
+  intro="La URL puede haber cambiado o ya no existir. Puedes retomar tu recorrido desde una de estas opciones."
+  noindex
+>
+  <nav class="recovery" aria-label="Opciones para continuar">
+    <a href="/">Ir al inicio</a>
+    <a href="/servicios/">Ver servicios</a>
+    <a href="/contacto/">Contactar</a>
+  </nav>
+</MarketingLayout>
+
+<style>
+  .recovery { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 0 1rem 8rem; }
+  .recovery a { padding: .85rem 1.15rem; color: var(--text-primary); border: 1px solid var(--border-primary); border-radius: 999px; text-decoration: none; }
+  .recovery a:first-child { color: #0c0c0c; background: #00ff7f; border-color: #00ff7f; }
+</style>

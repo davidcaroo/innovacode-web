@@ -1,0 +1,12 @@
+---
+import ContactForm from '../components/islands/ContactForm';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+const endpoint = import.meta.env.PUBLIC_CONTACT_ENDPOINT ?? 'https://n8nhero-ac01c953fd21.herokuapp.com/webhook/contacto-web-lead';
+if (new URL(endpoint).protocol !== 'https:') throw new Error('PUBLIC_CONTACT_ENDPOINT must use HTTPS');
+---
+<MarketingLayout title="Contacto | InnovaCode Solutions" description="Cuéntanos qué proceso, producto o canal necesitas mejorar. Revisaremos tu solicitud y el siguiente paso más sensato." eyebrow="Contacto" heading="Hablemos del reto, no solo de la herramienta" intro="Describe el contexto, qué necesitas cambiar y qué resultado esperas. No envíes información sensible o credenciales.">
+  <section class="contact-wrap"><ContactForm client:load {endpoint} /></section>
+</MarketingLayout>
+<style is:global>
+  .contact-wrap{max-width:52rem;margin:0 auto;padding:0 1.25rem 7rem}.contact-form{display:grid;gap:1.25rem;padding:clamp(1.25rem,4vw,2.5rem);background:var(--bg-card);border:1px solid var(--border-primary);border-radius:1.25rem}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.contact-form label{display:grid;gap:.45rem;font-weight:700}.contact-form input,.contact-form textarea{width:100%;box-sizing:border-box;padding:.85rem;color:var(--text-primary);background:var(--bg-primary);border:1px solid var(--border-primary);border-radius:.7rem;font:inherit}.contact-form input:focus,.contact-form textarea:focus{outline:2px solid #00ff7f;outline-offset:2px}.contact-form .consent{display:flex;align-items:flex-start;font-weight:400}.contact-form .consent input{width:1.1rem;margin-top:.25rem;accent-color:#00ff7f}.contact-form a{color:#00ff7f;text-decoration:underline;text-underline-offset:.2em}.contact-form button{justify-self:start;padding:.9rem 1.2rem;color:#0c0c0c;background:#00ff7f;border:0;border-radius:999px;font:inherit;font-weight:800;cursor:pointer}.contact-form button:disabled{opacity:.55}.honeypot{position:absolute!important;left:-10000px!important}.form-status{min-height:1.5rem;margin:0}.form-status.error{color:#ff8f8f}.form-status.success{color:#00ff7f}@media(max-width:650px){.form-grid{grid-template-columns:1fr}}
+</style>

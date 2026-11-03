@@ -1,0 +1,116 @@
+---
+import '../index.css';
+import '../styles/themes.css';
+
+import ConsentBanner from '../components/analytics/ConsentBanner.astro';
+import TagManager from '../components/analytics/TagManager.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import SeoHead from '../components/seo/SeoHead.astro';
+import { siteConfig } from '../config/site';
+import { buildCanonical } from '../lib/seo';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonical = buildCanonical(Astro.url.pathname).href,
+  image,
+  noindex = false,
+  schema,
+} = Astro.props;
+const gtmId = import.meta.env.PUBLIC_GTM_ID ?? siteConfig.gtmId;
+---
+
+<!doctype html>
+<html lang={siteConfig.locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <TagManager id={gtmId} />
+    <SeoHead {title} {description} {canonical} {image} {noindex} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    {schema && <JsonLd {schema} />}
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('innovacode-theme');
+        document.documentElement.dataset.theme = saved || 'dark';
+      })();
+    </script>
+  </head>
+  <body class="bg-bg-primary text-text-primary antialiased">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="InnovaCode Solutions, inicio">
+        Innova<span>Code</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="/servicios/">Servicios</a>
+        <a href="/casos-de-exito/">Casos</a>
+        <a href="/metodologia/">Metodología</a>
+        <a href="/recursos/">Recursos</a>
+        <a class="nav-cta" href="/contacto/">Hablemos</a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div>
+        <a class="brand" href="/">Innova<span>Code</span></a>
+        <p>Software a medida, inteligencia artificial y automatización para empresas.</p>
+      </div>
+      <nav aria-label="Navegación del pie">
+        <a href="/politica-privacidad/">Privacidad</a>
+        <a href="/politica-cookies/">Cookies</a>
+        <a href="/terminos-condiciones/">Términos</a>
+        <button type="button" data-open-consent>Configurar cookies</button>
+      </nav>
+      <p>© {new Date().getFullYear()} {siteConfig.name}</p>
+    </footer>
+    <ConsentBanner />
+  </body>
+</html>
+
+<style is:global>
+  :root { color-scheme: dark; }
+  :root[data-theme='light'] { color-scheme: light; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; min-width: 320px; }
+  .skip-link { position: fixed; left: 1rem; top: -4rem; z-index: 100; padding: .75rem 1rem; color: #0c0c0c; background: #00ff7f; border-radius: .5rem; }
+  .skip-link:focus { top: 1rem; }
+  .site-header { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem clamp(1rem, 5vw, 5rem); background: color-mix(in srgb, var(--bg-primary) 88%, transparent); border-bottom: 1px solid var(--border-primary); backdrop-filter: blur(16px); }
+  .brand { color: var(--text-primary); font-size: 1.4rem; font-weight: 800; text-decoration: none; }
+  .brand span { color: #00ff7f; }
+  .site-header nav, .site-footer nav { display: flex; align-items: center; gap: clamp(.8rem, 2vw, 1.5rem); }
+  .site-header nav a, .site-footer a { color: var(--text-secondary); text-decoration: none; font-weight: 600; }
+  .site-footer button { padding: 0; color: var(--text-secondary); background: none; border: 0; font: inherit; font-weight: 600; cursor: pointer; }
+  .site-header nav a:hover, .site-footer a:hover { color: #00ff7f; }
+  .site-header .nav-cta { padding: .65rem 1rem; color: #0c0c0c; background: #00ff7f; border-radius: 999px; }
+  .site-footer { display: grid; grid-template-columns: 2fr 1fr auto; align-items: end; gap: 2rem; padding: 3rem clamp(1rem, 5vw, 5rem); border-top: 1px solid var(--border-primary); }
+  .site-footer p { color: var(--text-secondary); max-width: 38rem; }
+  @media (max-width: 760px) {
+    .site-header nav a:not(.nav-cta) { display: none; }
+    .site-footer { grid-template-columns: 1fr; align-items: start; }
+    .site-footer nav { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0s !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+  }
+</style>

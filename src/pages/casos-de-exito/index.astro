@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import ContentCard from '../../components/ContentCard.astro';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+const cases = await getCollection('cases', ({ data }) => !data.draft && data.evidenceApproved);
+---
+<MarketingLayout title="Casos de éxito verificados | InnovaCode" description="Proyectos de software y experiencias digitales documentados con contexto, intervención y resultados verificables." eyebrow="Casos de éxito" heading="La evidencia importa más que la promesa" intro="Publicamos un caso únicamente cuando el cliente y la evidencia están aprobados. Estamos documentando los proyectos actuales bajo ese estándar.">
+  <section class="listing">{cases.length ? cases.map((entry)=><ContentCard href={`/casos-de-exito/${entry.id}/`} title={entry.data.title} description={entry.data.description} label={entry.data.client}/>) : <p>Aún no hay casos públicos bajo el nuevo estándar de verificación.</p>}</section>
+</MarketingLayout>
+<style>.listing{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:80rem;margin:0 auto;padding:0 1.25rem 7rem}.listing>p{color:var(--text-secondary)}</style>

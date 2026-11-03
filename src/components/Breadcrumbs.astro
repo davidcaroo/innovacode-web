@@ -1,0 +1,24 @@
+---
+export interface Props {
+  items: Array<{ name: string; href: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Migas de pan">
+  <ol>
+    {items.map((item, index) => (
+      <li>
+        {index === items.length - 1 ? <span aria-current="page">{item.name}</span> : <a href={item.href}>{item.name}</a>}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs { max-width: 74rem; margin: 0 auto; padding: 1.5rem 1.25rem 0; }
+  ol { display: flex; flex-wrap: wrap; gap: .55rem; margin: 0; padding: 0; color: var(--text-secondary); list-style: none; }
+  li:not(:last-child)::after { content: '/'; margin-left: .55rem; color: var(--border-secondary); }
+  a { color: var(--text-secondary); }
+</style>

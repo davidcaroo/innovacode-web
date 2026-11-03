@@ -1,0 +1,43 @@
+---
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  heading: string;
+  eyebrow?: string;
+  intro?: string;
+  breadcrumbs?: Array<{ name: string; href: string }>;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+const { title, description, heading, eyebrow, intro, breadcrumbs = [], schema, noindex } = Astro.props;
+---
+
+<BaseLayout {title} {description} {schema} {noindex}>
+  <main id="contenido" tabindex="-1">
+    {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+    <header class="content-hero">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{heading}</h1>
+      {intro && <p class="intro">{intro}</p>}
+    </header>
+    <article class="prose"><slot /></article>
+    <slot name="after" />
+  </main>
+</BaseLayout>
+
+<style is:global>
+  .content-hero { max-width: 74rem; margin: 0 auto; padding: clamp(4rem, 9vw, 8rem) 1.25rem 3rem; }
+  .content-hero .eyebrow { color: #00ff7f; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .content-hero h1 { max-width: 65rem; margin: 0; font-size: clamp(2.7rem, 7vw, 5.7rem); line-height: .97; letter-spacing: -.05em; }
+  .content-hero .intro { max-width: 52rem; color: var(--text-secondary); font-size: 1.25rem; line-height: 1.7; }
+  .prose { max-width: 52rem; margin: 0 auto; padding: 1rem 1.25rem 7rem; font-size: 1.08rem; line-height: 1.8; }
+  .prose h2 { margin: 3.5rem 0 1rem; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; }
+  .prose h3 { margin-top: 2.2rem; font-size: 1.45rem; }
+  .prose p, .prose li { color: var(--text-secondary); }
+  .prose a { color: #00ff7f; }
+  .prose strong { color: var(--text-primary); }
+  .prose li { margin-block: .65rem; }
+</style>

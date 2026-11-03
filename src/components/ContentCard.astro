@@ -1,0 +1,25 @@
+---
+export interface Props {
+  href: string;
+  title: string;
+  description: string;
+  label?: string;
+}
+const { href, title, description, label } = Astro.props;
+---
+
+<a class="content-card" {href}>
+  {label && <span>{label}</span>}
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <strong>Leer más →</strong>
+</a>
+
+<style>
+  .content-card { display: flex; flex-direction: column; min-height: 18rem; padding: 2rem; color: var(--text-primary); background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: 1.25rem; text-decoration: none; transition: transform .2s, border-color .2s; }
+  .content-card:hover { transform: translateY(-4px); border-color: #00ff7f; }
+  span, strong { color: #00ff7f; font-weight: 800; }
+  span { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+  h2 { margin: 2rem 0 1rem; font-size: 1.65rem; line-height: 1.1; }
+  p { flex: 1; color: var(--text-secondary); line-height: 1.65; }
+</style>

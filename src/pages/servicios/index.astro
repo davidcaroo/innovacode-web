@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import ContentCard from '../../components/ContentCard.astro';
+import MarketingLayout from '../../layouts/MarketingLayout.astro';
+
+const services = (await getCollection('services', ({ data }) => !data.draft)).sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+<MarketingLayout title="Servicios de software, IA y automatización | InnovaCode" description="Desarrollo de software a medida, inteligencia artificial, automatización y desarrollo web para empresas en Colombia y LATAM." eyebrow="Servicios" heading="Tecnología conectada con un resultado de negocio" intro="Escogemos la arquitectura y las herramientas después de entender el proceso, las personas y la métrica que debe cambiar.">
+  <section class="listing">
+    {services.map((service) => <ContentCard href={`/servicios/${service.id}/`} title={service.data.title} description={service.data.description} label={service.data.intent} />)}
+  </section>
+</MarketingLayout>
+
+<style>.listing{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:80rem;margin:0 auto;padding:0 1.25rem 7rem}@media(max-width:720px){.listing{grid-template-columns:1fr}}</style>

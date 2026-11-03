@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { organizationSchema, websiteSchema } from '../lib/seo';
+---
+
+<BaseLayout
+  title="InnovaCode Solutions | Software, IA y automatización en Colombia"
+  description="Diseñamos software a medida, soluciones de inteligencia artificial y automatizaciones que convierten procesos complejos en crecimiento medible."
+  schema={[organizationSchema(), websiteSchema()]}
+>
+  <main id="contenido" tabindex="-1">
+    <section class="hero">
+      <p class="eyebrow">Tecnología creada alrededor de tu negocio</p>
+      <h1>Software que convierte retos empresariales en <span>resultados</span></h1>
+      <p class="lead">
+        Diseñamos productos digitales, automatizaciones e inteligencia artificial para que tu empresa opere mejor, venda más y pueda escalar.
+      </p>
+      <div class="actions">
+        <a class="primary" href="/contacto/">Solicitar diagnóstico</a>
+        <a class="secondary" href="/servicios/">Explorar servicios</a>
+      </div>
+      <ul class="trust" aria-label="Características del servicio">
+        <li>Enfoque en negocio</li><li>Desarrollo a medida</li><li>Acompañamiento cercano</li>
+      </ul>
+    </section>
+
+    <section class="section" aria-labelledby="servicios-title">
+      <p class="eyebrow">Capacidades</p>
+      <h2 id="servicios-title">Una solución clara para cada cuello de botella</h2>
+      <div class="grid">
+        <a class="card" href="/servicios/desarrollo-software-a-medida/">
+          <span>01</span><h3>Software a medida</h3><p>Plataformas y herramientas alineadas con tu operación, sin adaptar tu negocio a una plantilla.</p>
+        </a>
+        <a class="card" href="/servicios/inteligencia-artificial/">
+          <span>02</span><h3>Inteligencia artificial</h3><p>IA aplicada a tareas, datos y decisiones con un caso de uso y retorno definidos.</p>
+        </a>
+        <a class="card" href="/servicios/automatizacion-procesos/">
+          <span>03</span><h3>Automatización</h3><p>Integramos sistemas y eliminamos trabajo manual repetitivo para recuperar tiempo operativo.</p>
+        </a>
+        <a class="card" href="/servicios/desarrollo-web/">
+          <span>04</span><h3>Desarrollo web</h3><p>Sitios rápidos, medibles y construidos para captar demanda, no solo para verse bien.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="split">
+      <div><p class="eyebrow">Cómo trabajamos</p><h2>De la oportunidad al resultado, sin caja negra</h2></div>
+      <ol>
+        <li><strong>Diagnóstico</strong><span>Entendemos el proceso, el usuario y la métrica que debe cambiar.</span></li>
+        <li><strong>Diseño</strong><span>Definimos alcance, arquitectura y una ruta de entrega verificable.</span></li>
+        <li><strong>Construcción</strong><span>Entregamos por iteraciones con pruebas y visibilidad continua.</span></li>
+        <li><strong>Evolución</strong><span>Medimos, aprendemos y priorizamos la siguiente mejora.</span></li>
+      </ol>
+    </section>
+
+    <section class="cta">
+      <p class="eyebrow">Siguiente paso</p>
+      <h2>Convirtamos tu próximo reto en una ventaja</h2>
+      <p>Cuéntanos qué proceso, producto o canal necesitas mejorar. Te ayudamos a definir el camino más sensato.</p>
+      <div class="actions"><a class="primary" href="/contacto/">Hablemos del proyecto</a><a class="secondary" href="/cotizador/">Cotizar una web</a></div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .hero, .section, .split, .cta { padding: clamp(5rem, 10vw, 9rem) clamp(1rem, 6vw, 6rem); }
+  .hero { min-height: calc(100vh - 5rem); display: grid; place-content: center; text-align: center; background: radial-gradient(circle at 50% 35%, color-mix(in srgb, #00ff7f 13%, transparent), transparent 35%); }
+  .eyebrow { margin: 0 0 1rem; color: #00ff7f; font-size: .9rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+  h1 { max-width: 72rem; margin: 0 auto; font-size: clamp(3rem, 8vw, 7rem); line-height: .92; letter-spacing: -.055em; }
+  h1 span { color: #00ff7f; }
+  .lead { max-width: 48rem; margin: 1.7rem auto; color: var(--text-secondary); font-size: clamp(1.1rem, 2vw, 1.4rem); line-height: 1.65; }
+  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem; }
+  .actions a { padding: .9rem 1.3rem; border-radius: 999px; font-weight: 800; text-decoration: none; }
+  .primary { color: #0c0c0c; background: #00ff7f; }
+  .secondary { color: var(--text-primary); border: 1px solid var(--border-primary); }
+  .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin: 3rem 0 0; padding: 0; color: var(--text-secondary); list-style: none; }
+  .trust li::before { content: '✓'; margin-right: .45rem; color: #00ff7f; }
+  .section { max-width: 90rem; margin: auto; }
+  h2 { margin: 0 0 2.5rem; font-size: clamp(2.3rem, 5vw, 4.5rem); line-height: 1; letter-spacing: -.04em; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .card { min-height: 17rem; padding: 2rem; color: var(--text-primary); background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: 1.5rem; text-decoration: none; transition: transform .2s, border-color .2s; }
+  .card:hover { transform: translateY(-4px); border-color: #00ff7f; }
+  .card > span { color: #00ff7f; font-weight: 800; }
+  .card h3 { margin: 3rem 0 1rem; font-size: 1.7rem; }
+  .card p { color: var(--text-secondary); line-height: 1.65; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 7vw, 8rem); background: var(--bg-secondary); }
+  .split ol { margin: 0; padding: 0; list-style: none; counter-reset: process; }
+  .split li { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid var(--border-primary); }
+  .split li span { color: var(--text-secondary); line-height: 1.55; }
+  .cta { text-align: center; }
+  .cta h2, .cta > p { max-width: 55rem; margin-inline: auto; }
+  .cta > p:not(.eyebrow) { color: var(--text-secondary); font-size: 1.2rem; line-height: 1.7; }
+  @media (max-width: 760px) { .grid, .split { grid-template-columns: 1fr; } .split li { grid-template-columns: 1fr; } }
+</style>

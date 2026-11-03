@@ -1,46 +1,72 @@
-name: Deploy to Hostinger
+name: Validate and deploy to Hostinger
 
 on:
-    push:
-        branches:
-            - main # Se ejecuta cuando haces push a la rama main
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: production
+  cancel-in-progress: false
 
 jobs:
-    build-and-deploy:
-        runs-on: ubuntu-latest
+  quality:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      PUBLIC_GTM_ID: ${{ vars.PUBLIC_GTM_ID }}
+      PUBLIC_WHATSAPP_NUMBER: ${{ vars.PUBLIC_WHATSAPP_NUMBER }}
+      PUBLIC_CONTACT_ENDPOINT: ${{ vars.PUBLIC_CONTACT_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm run verify:build-config
+      - run: npm test
+      - run: npm run test:e2e
+      - run: npm run lighthouse
+      - uses: actions/upload-artifact@v4
+        with:
+          name: astro-dist-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 30
 
-        steps:
-            # 1. Checkout del código
-            - name: Checkout repository
-              uses: actions/checkout@v4
-
-            # 2. Configurar Node.js
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "18"
-                  cache: "npm"
-
-            # 3. Instalar dependencias
-            - name: Install dependencies
-              run: npm ci
-
-            # 4. Build del proyecto
-            - name: Build project
-              run: npm run build
-
-            # 5. Deploy por FTP a Hostinger
-            - name: Deploy to Hostinger via FTP
-              uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-              with:
-                  server: ${{ secrets.FTP_SERVER }}
-                  username: ${{ secrets.FTP_USERNAME }}
-                  password: ${{ secrets.FTP_PASSWORD }}
-                  local-dir: ./dist/
-                  server-dir: /public_html/
-                  dangerous-clean-slate: false
-                  exclude: |
-                      **/.git*
-                      **/.git*/**
-                      **/node_modules/**
-                      .env
+  deploy:
+    needs: quality
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: astro-dist-${{ github.sha }}
+          path: dist/
+      - name: Deploy versioned artifact via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /public_html/
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .env
+      - name: Verify production
+        run: npm run verify:production -- --base-url https://innovacode.click
