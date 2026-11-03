@@ -5,6 +5,7 @@ const root = process.cwd();
 const redirects = readFileSync(`${root}/docs/seo/redirect-map.csv`, 'utf8');
 const htaccess = readFileSync(`${root}/public/.htaccess`, 'utf8');
 const deploy = readFileSync(`${root}/.github/workflows/deploy.yml`, 'utf8');
+const quality = readFileSync(`${root}/.github/workflows/quality.yml`, 'utf8');
 
 describe('production migration contract', () => {
   it('implements every approved path redirect as a one-hop 301', () => {
@@ -39,5 +40,9 @@ describe('production migration contract', () => {
     const host = htaccess.indexOf('RewriteCond %{HTTPS} !=on [OR]');
     expect(legacy).toBeGreaterThan(0);
     expect(legacy).toBeLessThan(host);
+  });
+
+  it.each([['deploy', deploy], ['pull request', quality]])('builds dist before artifact-dependent tests in %s CI', (_name, workflow) => {
+    expect(workflow.indexOf('npm run build')).toBeLessThan(workflow.indexOf('npm test'));
   });
 });
